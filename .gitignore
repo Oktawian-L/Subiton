@@ -82,3 +82,7 @@ SubitonWebApi/SubitonBackend/.vs/SubitonBackend/v15/Server/sqlite3/storage.ide-s
 SubitonWebApi/SubitonBackend/.vs/SubitonBackend/v15/Server/sqlite3/storage.ide-wal
 
 SubitonWebApi/SubitonBackend/.vs/SubitonBackend/v15/Server/sqlite3/
+SubitonBackend/.vs/SubitonBackend/DesignTimeBuild/.dtbcache
+SubitonBackend/.vs/SubitonBackend/v15/Server/sqlite3/db.lock
+SubitonBackend/.vs/SubitonBackend/v15/Server/sqlite3/storage.ide
+*.ide-wal
