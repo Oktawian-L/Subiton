@@ -29,6 +29,7 @@ namespace SubitonAPI
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite("Data Source =Subiton.db"));
             services.AddControllers();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +40,7 @@ namespace SubitonAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseHttpsRedirection();
 
             app.UseRouting();
