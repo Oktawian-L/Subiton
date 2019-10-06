@@ -4,7 +4,11 @@ Animal dating app
 
 ## Getting Started
 
-What things you need to install the software and how to install them
+angular
+repository pattern
+code first
+entity framework
+sqlite
 
 ### Prerequisites
 
