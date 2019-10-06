@@ -4,16 +4,16 @@ Animal dating app
 
 ## Getting Started
 
-
+What things you need to install the software and how to install them
 
 ### Prerequisites
 
-Install .netcore 3.0 and angular
+What things you need to install the software and how to install them
 
 ```
-Give examples
+dotnet ef migrations add init
 ```
-
+dotnet tool install -g dotnet-ef
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
@@ -21,13 +21,20 @@ A step by step series of examples that tell you how to get a development env run
 Say what the step will be
 
 ```
-Give the example
+dotnet restore
 ```
 
 And repeat
 
 ```
-until finished
+dotnet ef migrations add InitialSubiton
+```
+
+```
+npm install -g @angular/cli
+npm install bootstrap font-awesome
+npm start
+dotnet ef database update
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
@@ -72,9 +79,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Oktawian August Lasek** - *Initial work* - [PurpleBooth](https://github.com/Oktawian-L)
 
 ## License
 
@@ -82,7 +87,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Feel free to start coding by yourself
+* TGhe best hobby
 
