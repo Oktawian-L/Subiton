@@ -94,6 +94,11 @@ namespace SubitonAPI.Controllers
             var values = await _context.Values.FindAsync(id);
             if (values == null)
             {
+                return NoContent();
+            }
+
+            if (values == null)
+            {
                 return NotFound();
             }
 
