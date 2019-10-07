@@ -14,10 +14,19 @@ namespace SubitonAPI.Data
         {
             _context = context;
         }
-        public Task<User> Login(string username, string password)
+
+        public async Task<User> Login(string username, string password)
         {
-            throw new NotImplementedException();
+            var user = new User();
+            //var user = await _context.Users.FirstOrDefault();
+            if (user == null)
+                return null;
+            if (VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+                return null;
+            return user;
         }
+
+
 
         public async Task<User> Register(User user, string password)
         {
@@ -49,6 +58,20 @@ namespace SubitonAPI.Data
             }
 
         }
+
+        private bool VerifyPasswordHash(string password, object passwordHash, object passwordSalt)
+        {
+            using (var hMac = new System.Security.Cryptography.HMACSHA512())
+            {
+                var computedHash = hMac.ComputeHash(Encoding.UTF8.GetBytes(password));
+                for (int i = 0; i < computedHash.Length; i++)
+                {
+
+                }
+            }
+            return true;
+        }
+
         # endregion privateMethods
 
     }
