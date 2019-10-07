@@ -3,22 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SubitonAPI.Models;
 
 namespace SubitonAPI.Data
 {
+    /// <summary></summary>
+    /// <seealso cref="SubitonAPI.Data.IAuthRepository" />
     public class AuthRepository : IAuthRepository
     {
         private readonly DataContext _context;
+
+        #region publicMethods
+
+        /// <summary>Initializes a new instance of the <see cref="AuthRepository"/> class.</summary>
+        /// <param name="context">The context.</param>
         public AuthRepository(DataContext context)
         {
             _context = context;
         }
 
+        /// <summary>Logins the specified username.</summary>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <returns></returns>
         public async Task<User> Login(string username, string password)
         {
-            var user = new User();
-            //var user = await _context.Users.FirstOrDefault();
+            var user = await _context.Users.FirstOrDefaultAsync(x=> x.Username == username);
             if (user == null)
                 return null;
             if (VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
@@ -26,8 +37,10 @@ namespace SubitonAPI.Data
             return user;
         }
 
-
-
+        /// <summary>Registers the specified username.</summary>
+        /// <param name="user"></param>
+        /// <param name="password">The password.</param>
+        /// <returns></returns>
         public async Task<User> Register(User user, string password)
         {
             byte[] passwordHash, passwordSalt;
@@ -42,11 +55,20 @@ namespace SubitonAPI.Data
 
             return user;
         }
+
+        /// <summary>Users the exists.</summary>
+        /// <param name="username">The username.</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public Task<bool> UserExists(string username)
         {
             throw new NotImplementedException();
         }
+
+        #endregion publicMethods
+
         #region privateMethods
+
         private void CreatePasswordHashSalt(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hMac = new System.Security.Cryptography.HMACSHA512())
