@@ -8,7 +8,9 @@ using SubitonAPI.Models;
 
 namespace SubitonAPI.Data
 {
-    /// <summary></summary>
+    /// <summary>
+    /// Authorization repository implementation
+    /// </summary>
     /// <seealso cref="SubitonAPI.Data.IAuthRepository" />
     public class AuthRepository : IAuthRepository
     {
@@ -30,10 +32,13 @@ namespace SubitonAPI.Data
         public async Task<User> Login(string username, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x=> x.Username == username);
+
             if (user == null)
                 return null;
+
             if (VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
                 return null;
+
             return user;
         }
 
@@ -60,9 +65,12 @@ namespace SubitonAPI.Data
         /// <param name="username">The username.</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Task<bool> UserExists(string username)
+        public async Task<bool> UserExists(string username)
         {
-            throw new NotImplementedException();
+            if (await _context.Users.AnyAsync(x => x.Username == username))
+                return true;
+            else
+                return false;
         }
 
         #endregion publicMethods
@@ -81,17 +89,20 @@ namespace SubitonAPI.Data
 
         }
 
-        private bool VerifyPasswordHash(string password, object passwordHash, object passwordSalt)
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             using (var hMac = new System.Security.Cryptography.HMACSHA512())
             {
                 var computedHash = hMac.ComputeHash(Encoding.UTF8.GetBytes(password));
                 for (int i = 0; i < computedHash.Length; i++)
                 {
-
+                    if (computedHash[i] != passwordHash[i])
+                    {
+                        return false;
+                    }
                 }
+                return true;
             }
-            return true;
         }
 
         # endregion privateMethods
