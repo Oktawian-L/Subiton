@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SubitonAPI.Data;
+using SubitonAPI.DTO;
 using SubitonAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -20,20 +21,20 @@ namespace SubitonAPI.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult> Register(string username, string password)
+        public async Task<ActionResult> Register(UserRegisterDTO userRegisterDTO)
         {
-            username = username.ToLower();
-            if (await _repository.UserExists(username))
+            userRegisterDTO.Username = userRegisterDTO.Username.ToLower();
+            if (await _repository.UserExists(userRegisterDTO.Username))
             {
                 return BadRequest("User already exixts");
             }
 
             var userToCreate = new User
             {
-                Username = username
+                Username = userRegisterDTO.Username
             };
 
-            await _repository.Register(userToCreate, password);
+            await _repository.Register(userToCreate, userRegisterDTO.Password);
 
             return StatusCode(201);
         }
