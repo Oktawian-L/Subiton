@@ -6,6 +6,7 @@ using SubitonAPI.DTO;
 using SubitonAPI.Models;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -53,15 +54,24 @@ namespace SubitonAPI.Controllers
                 return Unauthorized();
 
             //JWT
-            var jwtToken = new[]
+            var jwtTokenClaims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Username)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+            var credentials = new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
+            var jwtToken = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(jwtTokenClaims),
+                Expires = DateTime.Now.AddHours(2),
+                SigningCredentials = credentials
+            };
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+            var token = jwtTokenHandler.CreateToken(jwtToken);
 
-            return StatusCode(201);
+            return Ok(new { token = jwtTokenHandler.WriteToken(token) });
         }
     }
 }
