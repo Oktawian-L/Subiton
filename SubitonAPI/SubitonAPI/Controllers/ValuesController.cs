@@ -32,6 +32,7 @@ namespace SubitonAPI.Controllers
         }
 
         // GET: api/Values/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<Values>> GetValues(int id)
         {
