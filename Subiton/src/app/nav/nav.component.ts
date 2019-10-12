@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorizationService } from '../_services/authorization.service';
+import { error } from 'util';
 
 @Component({
   selector: 'app-nav',
@@ -9,11 +11,16 @@ export class NavComponent implements OnInit {
 
   // declaring empty model
   model: any = {};
-  constructor() { }
+  constructor(private authService: AuthorizationService) { }
 
   ngOnInit() {
   }
-  login(){
-    console.log(this.model);
+  login() {
+
+    this.authService.login(this.model).subscribe(next => {
+      console.log(this.model);
+    }, error => {
+      console.log(this.model);
+    });
   }
 }
