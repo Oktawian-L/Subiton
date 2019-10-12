@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { NavComponent } from './nav/nav.component';
+import { AuthorizationService } from './_services/authorization.service';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { NavComponent } from './nav/nav.component';
       HttpClientModule,
       FormsModule
    ],
-   providers: [],
+   providers: [
+     AuthorizationService
+   ],
    bootstrap: [
       AppComponent
    ]
