@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthorizationService {
-  baseUrl = 'http://localhost:44363/api/auth/';
+  baseUrl = 'http://localhost:44363/api/AuthController/';
 
 constructor(private http: HttpClient) {
 
@@ -16,7 +16,7 @@ constructor(private http: HttpClient) {
     .pipe(map((response: any) => {
       const user = response;
       if (user) {
-        localStorage.setItem('token',user.token);
+        localStorage.setItem('token', user.token);
       }
     }));
  }

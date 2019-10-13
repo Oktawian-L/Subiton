@@ -14,14 +14,14 @@ using System.Threading.Tasks;
 
 namespace SubitonAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/AuthController")]
     [ApiController]
-    public class AuthControllercs : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repository;
         private readonly IConfiguration _configuration;
 
-        public AuthControllercs(IAuthRepository repository, IConfiguration configuration)
+        public AuthController(IAuthRepository repository, IConfiguration configuration)
         {
             _repository = repository;
             _configuration = configuration;
@@ -60,7 +60,7 @@ namespace SubitonAPI.Controllers
                 new Claim(ClaimTypes.NameIdentifier, user.Username)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("temporarySecretKeytemporarySecretKey"));
             var credentials = new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
             var jwtToken = new SecurityTokenDescriptor
             {
