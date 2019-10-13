@@ -16,6 +16,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
+  /// Method check ifuser is logged in
   login() {
     // this.authService.login(this.model)).subscribe(next => { console.log("logged"); }, errore => { console.log("logged");});
     console.log('button');
@@ -26,8 +27,12 @@ export class NavComponent implements OnInit {
     });
   }
 
-  /// Method check if
-  /// user is logged in
+  /// Method check ifuser is logged in
+  logout() {
+
+  }
+  
+  /// Method check ifuser is logged in
   isLoggedIn() {
     // get item for local objects storage
     const token = localStorage.getItem('token');
