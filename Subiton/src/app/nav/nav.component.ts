@@ -18,7 +18,6 @@ export class NavComponent implements OnInit {
 
   /// Method check ifuser is logged in
   login() {
-    // this.authService.login(this.model)).subscribe(next => { console.log("logged"); }, errore => { console.log("logged");});
     console.log('button');
     this.authService.login(this.model).subscribe(next => {
       console.log('logged2');
@@ -29,9 +28,10 @@ export class NavComponent implements OnInit {
 
   /// Method check ifuser is logged in
   logout() {
-
+    localStorage.removeItem('token');
+    console.log('loggedout');
   }
-  
+
   /// Method check ifuser is logged in
   isLoggedIn() {
     // get item for local objects storage
