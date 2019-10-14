@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  model: any = {};
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  // Register form button - accept changes
+  register() {
+    console.log(this.model);
+  }
+  
+  // Register form button - abaddon changes
+  cancel() {
+    console.log('abbadon actrion');
   }
 
 }
