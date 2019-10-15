@@ -11,6 +11,8 @@ export class AuthorizationService {
 constructor(private http: HttpClient) {
 
  }
+
+ // Authorize new session
  login(model: any) {
   return this.http.post(this.baseUrl + 'login',  model)
     .pipe(map((response: any) => {
@@ -20,5 +22,10 @@ constructor(private http: HttpClient) {
         localStorage.setItem('token', user.token);
       }
     }));
+ }
+
+ // Register new user
+ register(model: any) {
+  return this.http.post(this.baseUrl + 'register', model);
  }
 }

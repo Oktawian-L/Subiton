@@ -9,26 +9,19 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
 
   registerMode = false;
-  values: any;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getValues();
   }
 
-  // Sterring the register form
+  // Sterring the register form, if register form is visible or not
   registerToggle() {
     this.registerMode = !this.registerMode;
   }
 
-  // Request to api
-  getValues() {
-    this.http.get('https://localhost:44363/api/Values').subscribe(response => {
-      this.values = response;
-    }, error => {
-      console.error(error);
-    });
+  // handling event from child component
+  setRegisterMode(registerModeFromChild: boolean) {
+    this.registerMode = registerModeFromChild;
   }
-
 }

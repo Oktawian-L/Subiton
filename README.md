@@ -2,6 +2,12 @@
 
 Animal dating app
 
+To run application - run backend with .net core 3.0+
+run client - from console
+go to projecty folder
+npm update
+npm start
+
 ## Getting Started
 
 angular
@@ -72,7 +78,8 @@ Add additional notes about how to deploy this on a live system
 
 * [Angular](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Visual 2019](https://maven.apache.org/) - Compilator
-* [.Net Core 3.0](https://rometools.github.io/rome/) - backend
+* [.Net Core 3.0](https://rmicrosoft.com) - backend
+* [Alertify](https://alertifyjs.com/) - notifications
 
 ## Contributing
 
