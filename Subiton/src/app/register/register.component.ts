@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthorizationService } from '../_services/authorization.service';
 import { error } from 'util';
+declare let alertify: any;
 
 @Component({
   selector: 'app-register',
@@ -23,9 +24,9 @@ export class RegisterComponent implements OnInit {
   register() {
     // register returns data, so needs subscribe
     this.authService.register(this.model).subscribe(() => {
-      console.log('ok');
+      alertify.success('register success');
     }, errore => {
-      console.log(errore);
+      alertify.error('error');
     });
     // this.canceledRegister.emit(true);
     console.log(this.model);

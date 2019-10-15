@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorizationService } from '../_services/authorization.service';
 import { error } from 'util';
+declare let alertify: any;
 
 @Component({
   selector: 'app-nav',
@@ -18,11 +19,11 @@ export class NavComponent implements OnInit {
 
   /// Method check ifuser is logged in
   login() {
-    console.log('button');
+    // console.log('button');
     this.authService.login(this.model).subscribe(next => {
-      console.log('logged2');
+      alertify.success('logged success');
     }, errore => {
-        console.log('error' + errore);
+        alertify.error('blad logowania');
     });
   }
 
