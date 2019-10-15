@@ -24,6 +24,7 @@ namespace SubitonAPI.Controllers
         }
 
         // GET: api/Values
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Values>>> GetValues()
         {
