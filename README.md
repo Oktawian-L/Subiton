@@ -3,9 +3,9 @@
 Animal dating app
 
 To run application 
-*run backend with .net core 3.0+
-*run client - from console
-*go to projecty folder
+* run backend with .net core 3.0+
+* run client - from console
+* go to projecty folder
 ```
 npm update
 ```
@@ -14,11 +14,11 @@ npm start
 ```
 ## Getting Started
 
-*angular
-*repository pattern
-*code first
-*entity framework
-**sqlite
+* angular
+* repository pattern
+* code first
+* entity framework
+* sqlite
 
 ### Prerequisites
 
