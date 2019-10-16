@@ -1,5 +1,8 @@
 # SUBITON
 
+![Logo](https://github.com/Oktawian-L/Subiton/blob/master/SubitonAPI/Resources/first_logo.png "Optional title")
+
+
 Animal dating app
 
 To run application 
