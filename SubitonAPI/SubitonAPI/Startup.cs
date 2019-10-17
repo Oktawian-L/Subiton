@@ -33,9 +33,13 @@ namespace SubitonAPI
             services.AddDbContext<DataContext>(x => x.UseSqlite("Data Source =Subiton.db"));
             services.AddControllers();
             services.AddCors();
-            //register service
+            //seed db
+            services.AddTransient<Seed>();
             //Add singleton - tworz jedna instacje; repo Addtrransient -light services
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IGenericRepository, GenericRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -49,12 +53,15 @@ namespace SubitonAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Seed seedDb)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //seeding database
+            seedDb.SeedUsers();
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
