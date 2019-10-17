@@ -1,0 +1,25 @@
+[
+  "{{repeat(22, 25)}}",
+  {
+    "id": "{{objectId()}}",
+    "username": "{{\"firstName()\"}}",
+    "password": "password",
+    "gender": "female",
+    "dateOfBirth": "{{date(new Date(2000, 0, 1), new Date(), \"YYYY-MM-ddThh:mm:ss Z\")}}",
+    "rasa": "terier",
+    "created": "{{date(new Date(2000, 0, 1), new Date(), \"YYYY-MM-ddThh:mm:ss Z\")}}",
+    "lastActive": "{{date(new Date(2000, 0, 1), new Date(), \"YYYY-MM-ddThh:mm:ss Z\")}}",
+    "city": "{ { \"city()\" } }",
+    "country": "{ { \"country()\" } }",
+    "height": "{ { \"integer(150,200)\" } }",
+    "furColor": "rudy",
+    "weight": "{ { \"integer(150,200)\" } }",
+    "nature": "nice",
+    "martialStatus": "free",
+    "description": "{{lorem(1, \"paragraphs\")}}",
+    "lookingFor": "{{lorem(1, \"paragraphs\")}}",
+    "interests": "{{lorem(1, \"paragraphs\")}}",
+    "freeTimeActivities": "{{lorem(1, \"paragraphs\")}}",
+    "education": "{{lorem(1, \"paragraphs\")}}"
+  }
+]
