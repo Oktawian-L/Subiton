@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SubitonAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,6 +9,8 @@ namespace SubitonAPI.DTO
 {
     public class UserDTO
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Username is required.")]
         public string Username { get; set; }
 
@@ -22,9 +25,7 @@ namespace SubitonAPI.DTO
     // data to show profile
     public class UserForListDto: UserDTO
     {
-        public int Id { get; set; }
-
-        // basic user info
+        public int Age { get; set; }
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Rasa { get; set; }
@@ -32,5 +33,24 @@ namespace SubitonAPI.DTO
         public DateTime LastActive { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+        public string PhotoUrl { get; set; }
+    }
+    public class UserForDetails : UserDTO
+    {
+        public string Height { get; set; }
+        public string FurColor { get; set; }
+        public string Weight { get; set; }
+        public string Nature { get; set; }
+        public string MartialStatus { get; set; }
+
+        //description
+        public string Description { get; set; }
+        public string LookingFor { get; set; }
+
+        // Upodobania
+        public string Interests { get; set; }
+        public string FreeTimeActivities { get; set; }
+        public string Education { get; set; }
+        public ICollection<Photo> Photos { get; set; }
     }
 }

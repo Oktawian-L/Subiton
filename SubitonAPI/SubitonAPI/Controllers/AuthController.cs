@@ -19,7 +19,14 @@ namespace SubitonAPI.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        /// <summary>
+        /// The repository
+        /// </summary>
         private readonly IAuthRepository _repository;
+
+        /// <summary>
+        /// The configuration
+        /// </summary>
         private readonly IConfiguration _configuration;
 
         public AuthController(IAuthRepository repository, IConfiguration configuration)
