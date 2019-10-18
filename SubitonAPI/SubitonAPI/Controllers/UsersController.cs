@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SubitonAPI.Data;
+using SubitonAPI.DTO;
 using SubitonAPI.Models;
 
 namespace SubitonAPI.Controllers
@@ -16,11 +18,20 @@ namespace SubitonAPI.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        /// <summary>
+        /// The user repository
+        /// </summary>
         private readonly IUserRepository _userRepository;
 
-        public UsersController(IUserRepository userRepository)
+        /// <summary>
+        /// The mapper
+        /// </summary>
+        private readonly IMapper _mapper;
+
+        public UsersController(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
         // GET: api/Users
@@ -28,8 +39,9 @@ namespace SubitonAPI.Controllers
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             var users =  await _userRepository.GetAllUsers();
-
-            return Ok(users);
+            // map from user to copllection dto
+            var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+            return Ok(usersToReturn);
         }
 
         // GET: api/Users/5
