@@ -11,7 +11,7 @@ using SubitonAPI.Models;
 
 namespace SubitonAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
