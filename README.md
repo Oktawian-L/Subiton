@@ -1,6 +1,6 @@
 # SUBITON
 
-  ![Logo](https://github.com/Oktawian-L/Subiton/blob/master/SubitonAPI/Resources/first_logo%20(3).png "Optional title")
+  ![Logo](https://github.com/Oktawian-L/Subiton/blob/master/SubitonAPI/Resources/RepoPresent.png.png "Optional title")
 
 
 
