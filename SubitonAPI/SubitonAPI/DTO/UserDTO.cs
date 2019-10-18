@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace SubitonAPI.DTO
 {
+    /// <summary>
+    /// Base user
+    /// </summary>
     public class UserDTO
     {
         public int Id { get; set; }
@@ -18,11 +21,10 @@ namespace SubitonAPI.DTO
         [Required(ErrorMessage = "Password is required.")]
         public string Password { get; set; }
     }
-    public class UserRegisterDTO : UserDTO
-    {
 
-    }
-    // data to show profile
+    /// <summary>
+    /// User data ata to show profile\</summary>
+    /// <seealso cref="SubitonAPI.DTO.UserDTO" />
     public class UserForListDto: UserDTO
     {
         public int Age { get; set; }
@@ -35,6 +37,11 @@ namespace SubitonAPI.DTO
         public string Country { get; set; }
         public string PhotoUrl { get; set; }
     }
+
+    /// <summary>
+    /// User data ata to show profile\</summary>
+    /// </summary>
+    /// <seealso cref="SubitonAPI.DTO.UserDTO" />
     public class UserForDetails : UserDTO
     {
         public string Height { get; set; }
@@ -52,5 +59,11 @@ namespace SubitonAPI.DTO
         public string FreeTimeActivities { get; set; }
         public string Education { get; set; }
         public ICollection<Photo> Photos { get; set; }
+        public string PhotoUrl { get; set; }
+    }
+
+    public class UserRegisterDTO : UserDTO
+    {
+
     }
 }
