@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +34,8 @@ namespace SubitonAPI
             services.AddDbContext<DataContext>(x => x.UseSqlite("Data Source =Subiton.db"));
             services.AddControllers();
             services.AddCors();
+            //automapper init
+            services.AddAutoMapper(typeof(Startup));
             //seed db
             services.AddTransient<Seed>();
             //Add singleton - tworz jedna instacje; repo Addtrransient -light services
