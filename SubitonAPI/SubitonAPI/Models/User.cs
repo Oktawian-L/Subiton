@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SubitonAPI.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace SubitonAPI.Models
         public string Username { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public AnimalType AnimalType { get; set; }
 
         // basic user info
         public string Gender { get; set; }

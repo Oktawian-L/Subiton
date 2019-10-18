@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SubitonAPI.Helpers
 {
-    enum AnimalType
+    public enum AnimalType
     {
         Dog = 0,
         Cat = 1,
