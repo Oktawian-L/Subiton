@@ -6,7 +6,7 @@ import { User } from '../_models/user';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
+    Authorization: 'Bearer ' + localStorage.getItem('token')
   })
 };
 
@@ -15,13 +15,13 @@ const httpOptions = {
 })
 export class UserService {
 
-  baseUrl =  environment.apiUrl;
+   baseUrl =  environment.apiUrl;
 
 constructor(private http: HttpClient) { }
 
   // call backend api to users data
   public getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.baseUrl + 'Users', httpOptions);
+    return this.http.get<User[]>('https://localhost:44363/api/Users', httpOptions);
   }
   // call backend api to single user data
   public getUser(id: number): Observable<User> {

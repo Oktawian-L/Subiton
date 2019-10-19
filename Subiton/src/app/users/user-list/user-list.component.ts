@@ -15,11 +15,13 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService, private alertify: AlertifyService) { }
 
   ngOnInit() {
+    this.loadUsers();
   }
   // get all users
   loadUsers() {
     this.userService.getUsers()
       .subscribe((users: User[]) => {
+        console.log('getusers call');
         this.users = users;
       }, error => {
         this.alertify.error(error);
