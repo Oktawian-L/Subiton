@@ -31,6 +31,14 @@ namespace SubitonTests
         [Fact]
         public void Test1()
         {
+            var expectedResult = 4;
+            var a = 2;
+            var b = 2;
+
+            var result = a + b;
+
+            Assert.NotNull(result);
+            Assert.Equal(result, expectedResult);
         }
     }
 }
