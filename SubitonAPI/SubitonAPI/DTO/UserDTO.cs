@@ -1,4 +1,5 @@
-﻿using SubitonAPI.Models;
+﻿using SubitonAPI.Helpers;
+using SubitonAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,7 @@ namespace SubitonAPI.DTO
     public class UserDTO
     {
         public int Id { get; set; }
+        public AnimalType AnimalType { get; set; }
 
         [Required(ErrorMessage = "Username is required.")]
         public string Username { get; set; }

@@ -36,18 +36,13 @@ namespace SubitonAPI.Controllers
             _mapper = mapper;
         }
 
-        public UsersController(IUserRepository service)
-        {
-            this.service = service;
-        }
-
         // GET: api/Users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             var users = await _userRepository.GetAllUsers();
             // map from user to copllection dto
-            var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+            var usersToReturn = _mapper.Map<IEnumerable<UserForDetailsDTO>>(users);
 
             return Ok(usersToReturn);
         }
