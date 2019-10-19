@@ -16,7 +16,15 @@ namespace SubitonAPI.Helper
     {
         public AutoMapperProfiles()
         {
-            CreateMap<User, UserForListDto>();
+            //custom profile to select main photo
+            CreateMap<User, UserForListDto>()
+                .ForMember(dest => dest.PhotoUrl, opt =>
+                {
+                    opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url);
+                }
+                );
+            CreateMap<User, UserForDetailsDTO>();
+            CreateMap<Photo, PhotoDTO>();
         }
     }
 }

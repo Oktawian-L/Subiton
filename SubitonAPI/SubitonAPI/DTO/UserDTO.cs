@@ -42,7 +42,7 @@ namespace SubitonAPI.DTO
     /// User data ata to show profile\</summary>
     /// </summary>
     /// <seealso cref="SubitonAPI.DTO.UserDTO" />
-    public class UserForDetailsDTO : UserDTO
+    public class UserForDetailsDTO : UserForListDto
     {
         public string Height { get; set; }
         public string FurColor { get; set; }
