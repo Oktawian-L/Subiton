@@ -1,3 +1,5 @@
+import { Photo } from './_photo';
+
 export interface User {
     height?: any;
     furColor?: any;
@@ -9,7 +11,7 @@ export interface User {
     interests?: any;
     freeTimeActivities?: any;
     education?: any;
-    photos: any[];
+    photos: Photo[];
     photoUrl?: any;
     age: number;
     gender?: any;
