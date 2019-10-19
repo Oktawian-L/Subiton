@@ -28,20 +28,27 @@ namespace SubitonAPI.Controllers
         /// </summary>
         private readonly IMapper _mapper;
 
+        private IUserRepository service;
+
         public UsersController(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _mapper = mapper;
         }
 
+        public UsersController(IUserRepository service)
+        {
+            this.service = service;
+        }
+
         // GET: api/Users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            var users =  await _userRepository.GetAllUsers();
+            var users = await _userRepository.GetAllUsers();
             // map from user to copllection dto
             var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
-            
+
             return Ok(usersToReturn);
         }
 
@@ -58,6 +65,7 @@ namespace SubitonAPI.Controllers
             var userToreturn = _mapper.Map<UserForDetailsDTO>(user);
             return Ok(userToreturn);
         }
+
         /*
         // PUT: api/Users/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for

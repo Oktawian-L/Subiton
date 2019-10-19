@@ -1,6 +1,7 @@
 using AutoMapper;
 using SubitonAPI.Controllers;
 using SubitonAPI.Data;
+using SubitonTests.DummyData;
 using System;
 using Xunit;
 
@@ -19,11 +20,12 @@ namespace SubitonTests
         private readonly IMapper _mapper;
 
         private UsersController _usersController;
+        private IUserRepository _service;
 
         public UsersWebApiTest()
         {
-            _service =
-            _usersController =
+            _service = new UserRepositoryDummy();
+            _usersController = new UsersController(_service);
         }
 
         [Fact]
