@@ -41,6 +41,7 @@ namespace SubitonAPI.Controllers
             var users =  await _userRepository.GetAllUsers();
             // map from user to copllection dto
             var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+            
             return Ok(usersToReturn);
         }
 
@@ -54,8 +55,8 @@ namespace SubitonAPI.Controllers
             {
                 return NotFound();
             }
-
-            return Ok(user);
+            var userToreturn = _mapper.Map<UserForDetailsDTO>(user);
+            return Ok(userToreturn);
         }
         /*
         // PUT: api/Users/5
