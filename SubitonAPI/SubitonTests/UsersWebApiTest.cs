@@ -29,7 +29,7 @@ namespace SubitonTests
         }
 
         [Fact]
-        public void Test1()
+        public void AddingMethods_CorrectResult()
         {
             var expectedResult = 4;
             var a = 2;
@@ -37,7 +37,7 @@ namespace SubitonTests
 
             var result = a + b;
 
-            Assert.NotNull(result);
+            Assert.IsType<int>(result);
             Assert.Equal(result, expectedResult);
         }
     }
