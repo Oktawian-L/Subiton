@@ -20,11 +20,11 @@ export class UserService {
 constructor(private http: HttpClient) { }
 
   // call backend api to users data
-  getUsers(): Observable<User[]> {
+  public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl + 'Users', httpOptions);
   }
   // call backend api to single user data
-  getUser(id: number): Observable<User> {
+  public getUser(id: number): Observable<User> {
     return this.http.get<User>(this.baseUrl + 'Users/' + id, httpOptions );
   }
 }
