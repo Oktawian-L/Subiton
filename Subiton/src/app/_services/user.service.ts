@@ -4,11 +4,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 
-const httpOptions = {
+/*const httpOptions = {
   headers: new HttpHeaders({
     Authorization: 'Bearer ' + localStorage.getItem('token')
   })
-};
+};*/
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +21,10 @@ constructor(private http: HttpClient) { }
 
   // call backend api to users data
   public getUsers(): Observable<User[]> {
-    return this.http.get<User[]>('https://localhost:44363/api/Users', httpOptions);
+    return this.http.get<User[]>('https://localhost:44363/api/Users');
   }
   // call backend api to single user data
   public getUser(id: number): Observable<User> {
-    return this.http.get<User>(this.baseUrl + 'Users/' + id, httpOptions );
+    return this.http.get<User>(this.baseUrl + 'Users/' + id );
   }
 }

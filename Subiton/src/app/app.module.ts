@@ -12,7 +12,12 @@ import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
 import { UserService } from './_services/user.service';
 import { UserListComponent } from './users/user-list/user-list.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
+// defining reading token early om
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
    declarations: [
@@ -25,7 +30,14 @@ import { UserListComponent } from './users/user-list/user-list.component';
    imports: [
       BrowserModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      JwtModule.forRoot({
+        config: {
+          tokenGetter,
+          whitelistedDomains: ['localhost:44363'],
+          blacklistedRoutes: ['localhost:44363/api/auth']
+        }
+      })
    ],
    providers: [
       AuthorizationService,
