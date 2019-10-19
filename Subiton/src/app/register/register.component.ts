@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
   // Register form button - abaddon changes
   cancel() {
     // give value to parent component
-    // this.canceledRegister.emit(false);
+    this.canceledRegister.emit(false);
     console.log('abbadon actrion');
   }
 

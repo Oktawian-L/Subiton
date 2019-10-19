@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthorizationService {
-  baseUrl = environment.apiUrl + '/AuthController/';
+  baseUrl = environment.apiUrl + 'AuthController/';
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 constructor(private http: HttpClient) {
