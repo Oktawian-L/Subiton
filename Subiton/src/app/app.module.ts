@@ -10,6 +10,7 @@ import { AuthorizationService } from './_services/authorization.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
+import { UserService } from './_services/user.service';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AlertifyService } from './_services/alertify.service';
    ],
    providers: [
       AuthorizationService,
-      AlertifyService
+      AlertifyService,
+      UserService
    ],
    bootstrap: [
       AppComponent
