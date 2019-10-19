@@ -1,11 +1,24 @@
 import { Injectable } from '@angular/core';
+import { environment} from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { User } from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  baseUrl: 'https://localhost:44363/api/Users';
-constructor() { }
+  baseUrl =  environment.apiUrl;
 
+constructor(private http: HttpClient) { }
+
+  // call backend api to users data
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + 'Users');
+  }
+  // call backend api to single user data
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(this.baseUrl + 'Users/' + id );
+  }
 }
