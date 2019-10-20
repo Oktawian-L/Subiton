@@ -28,8 +28,6 @@ namespace SubitonAPI.Controllers
         /// </summary>
         private readonly IMapper _mapper;
 
-        private IUserRepository service;
-
         public UsersController(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;

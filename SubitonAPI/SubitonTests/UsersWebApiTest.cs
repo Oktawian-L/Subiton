@@ -1,35 +1,33 @@
 using AutoMapper;
+using Moq;
 using SubitonAPI.Controllers;
 using SubitonAPI.Data;
+using SubitonAPI.Models;
 using SubitonTests.DummyData;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xunit;
+
+using Moq;
 
 namespace SubitonTests
 {
     public class UsersWebApiTest
     {
-        /// <summary>
-        /// The user repository
-        /// </summary>
-        private readonly IUserRepository _userRepository;
-
-        /// <summary>
-        /// The mapper
-        /// </summary>
-        private readonly IMapper _mapper;
-
-        private UsersController _usersController;
-        private IUserRepository _service;
-
-        public UsersWebApiTest()
+        [Fact]
+        public void Users_GetExisting()
         {
-            _service = new UserRepositoryDummy();
-            _usersController = new UsersController(_service);
+            var mock = new Mock<IUserRepository>();
+            var mockedMapper = new Mock<IMapper>();
+            //mock.Setup(p => p.GetUser(1)).Returns(userMocked);
+            UsersController home = new UsersController(mock.Object, mockedMapper.Object);
+            var result = home.GetUser(1);
+            Assert.NotNull(result);
         }
 
         [Fact]
-        public void AddingMethods_CorrectResult()
+        public void AddingMethodsCorrectResult()
         {
             var expectedResult = 4;
             var a = 2;

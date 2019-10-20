@@ -16,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SubitonAPI.Data;
+using SubitonAPI.Helper;
 
 namespace SubitonAPI
 {
@@ -36,13 +37,18 @@ namespace SubitonAPI
             services.AddCors();
             //automapper init
             services.AddAutoMapper(typeof(Startup));
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new AutoMapperProfiles());
+            });
             //seed db
             services.AddTransient<Seed>();
             //Add singleton - tworz jedna instacje; repo Addtrransient -light services
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
