@@ -24,4 +24,5 @@ export class HomeComponent implements OnInit {
   setRegisterMode(registerModeFromChild: boolean) {
     this.registerMode = registerModeFromChild;
   }
+  // sending a mail
 }

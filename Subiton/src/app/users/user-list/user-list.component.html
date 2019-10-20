@@ -1,6 +1,13 @@
 <div>
   component
 </div>
+
+<div style="text-align: center">
+  <p>send a mail to user</p>
+  <div class="text-center">
+    <button class="btn btn-info btn-lg" (click)="infoMail()">Info</button>
+  </div>
+</div>
 <div>
   <p *ngFor="let user of users">
     {{user.username}} - {{user.age}} - {{user.furColor}}

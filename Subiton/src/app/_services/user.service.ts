@@ -27,4 +27,10 @@ constructor(private http: HttpClient) { }
   public getUser(id: number): Observable<User> {
     return this.http.get<User>(this.baseUrl + 'Users/' + id );
   }
+  // sending mail
+  public sendMail() {
+    this.http.get('https://localhost:44363/api/SendMail');
+    console.log('send');
+  }
+
 }

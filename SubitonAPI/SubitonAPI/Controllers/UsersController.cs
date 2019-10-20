@@ -45,6 +45,12 @@ namespace SubitonAPI.Controllers
             return Ok(usersToReturn);
         }
 
+        [HttpGet]
+        public ActionResult SendMail()
+        {
+            return Ok();
+        }
+
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)

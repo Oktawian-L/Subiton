@@ -17,6 +17,9 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.loadUsers();
   }
+  infoMail() {
+    this.userService.sendMail();
+  }
   // get all users
   loadUsers() {
     this.userService.getUsers()
