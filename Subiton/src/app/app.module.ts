@@ -13,6 +13,8 @@ import { AlertifyService } from './_services/alertify.service';
 import { UserService } from './_services/user.service';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
 
 // defining reading token early om
 export function tokenGetter() {
@@ -37,7 +39,8 @@ export function tokenGetter() {
           whitelistedDomains: ['localhost:44363'],
           blacklistedRoutes: ['localhost:44363/api/auth']
         }
-      })
+      }),
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthorizationService,
