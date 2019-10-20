@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Subiton</a>
+  <a class="navbar-brand" [routerLink]="['/home']"  >Subiton</a>
 
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Users</a>
+      <li class="nav-item" routerLinkActive="router-link-active">
+        <a class="nav-link" [routerLink]="['/users']" >Users</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Favourite</a>
+      <li class="nav-item" routerLinkActive="router-link-active">
+        <a class="nav-link" [routerLink]="['/likes']">Favourite</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Messages</a>
+      <li class="nav-item" routerLinkActive="router-link-active">
+        <a class="nav-link" [routerLink]="['/messages']">Messages</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" >
         <a class="nav-link" href="#" (click)="logout()">Log out</a>
       </li>
     </ul>

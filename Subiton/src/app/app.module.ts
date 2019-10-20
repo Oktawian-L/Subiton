@@ -15,6 +15,8 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
+import { LikesComponent } from './likes/likes.component';
+import { MessagesComponent } from './messages/messages.component';
 
 // defining reading token early om
 export function tokenGetter() {
@@ -27,7 +29,9 @@ export function tokenGetter() {
       NavComponent,
       HomeComponent,
       RegisterComponent,
-      UserListComponent
+      UserListComponent,
+      LikesComponent,
+      MessagesComponent
    ],
    imports: [
       BrowserModule,
