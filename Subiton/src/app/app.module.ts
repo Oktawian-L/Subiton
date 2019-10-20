@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { LikesComponent } from './likes/likes.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 // defining reading token early om
 export function tokenGetter() {
@@ -49,7 +50,8 @@ export function tokenGetter() {
    providers: [
       AuthorizationService,
       AlertifyService,
-      UserService
+      UserService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent
