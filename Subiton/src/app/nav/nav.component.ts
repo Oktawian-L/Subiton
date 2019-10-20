@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthorizationService } from '../_services/authorization.service';
 import { error } from 'util';
 import { AlertifyService } from '../_services/alertify.service';
+import { Router } from '@angular/router';
 declare let alertify: any;
 
 @Component({
@@ -14,7 +15,8 @@ export class NavComponent implements OnInit {
   // declaring empty model
   model: any = {};
   constructor(public authService: AuthorizationService,
-              private alertifyService: AlertifyService) { }
+              private alertifyService: AlertifyService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -25,6 +27,8 @@ export class NavComponent implements OnInit {
       this.alertifyService.success('Success. Welcome user.');
     }, errore => {
         this.alertifyService.error('Cannot authorize you.');
+    }, () => {
+      this.router.navigate(['/users']);
     });
   }
 
@@ -32,6 +36,7 @@ export class NavComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     this.alertifyService.message('You are logged out.');
+    this.router.navigate(['/home']);
   }
 
   /// Method check ifuser is logged in
