@@ -21,14 +21,13 @@
         Welcome {{ authService.decodedToken.nameid[1] | titlecase }}
       </a>
 
-      <div class="dropdown-menu" *dropdownMenu>
+      <div class="dropdown-menu mt-3" *dropdownMenu>
         <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Profil</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Log out</a>
       </div>
     </div>
 
-    <div>"   "</div>
     <form *ngIf="!isLoggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
       <input class="form-control mr-sm-2" type="text" placeholder="Username" [(ngModel)]="model.Username" name="username" required>
       <input class="form-control mr-sm-2" type="password" placeholder="Password" [(ngModel)]="model.Password" name="password" required>
