@@ -23,6 +23,7 @@ npm start
 * code first
 * entity framework
 * sqlite
+* Bootswatch
 
 ### Prerequisites
 
