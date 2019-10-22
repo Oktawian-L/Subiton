@@ -15,5 +15,9 @@ namespace SubitonAPI.Helpers
                 age--;
             return age;
         }
+        public static void AddApplicationError()
+        {
+            
+        }
     }
 }
