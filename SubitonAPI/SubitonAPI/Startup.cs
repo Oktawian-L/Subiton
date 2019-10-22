@@ -81,6 +81,7 @@ namespace SubitonAPI
 
                         if (error != null)
                         {
+                            context.Response.AddApplicationError(error.Error);
                             await context.Response.WriteAsync(error.Error.Message);
                         }
                     });
