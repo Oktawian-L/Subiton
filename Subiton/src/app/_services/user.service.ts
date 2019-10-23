@@ -21,7 +21,7 @@ constructor(private http: HttpClient) { }
 
   // call backend api to users data
   public getUsers(): Observable<User[]> {
-    return this.http.get<User[]>('https://localhost:44363/api/Users');
+    return this.http.get<User[]>('https://localhost:5001/api/Users');
   }
   // call backend api to single user data
   public getUser(id: number): Observable<User> {
