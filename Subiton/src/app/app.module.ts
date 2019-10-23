@@ -56,7 +56,8 @@ export function tokenGetter() {
       AuthorizationService,
       AlertifyService,
       UserService,
-      AuthGuard
+      AuthGuard,
+      ErrorInterceptorProvider
    ],
    bootstrap: [
       AppComponent

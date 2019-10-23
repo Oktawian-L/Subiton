@@ -38,6 +38,7 @@ namespace SubitonAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
+            throw new Exception("blad");
             var users = await _userRepository.GetAllUsers();
             // map from user to copllection dto
             var usersToReturn = _mapper.Map<IEnumerable<UserForDetailsDTO>>(users);

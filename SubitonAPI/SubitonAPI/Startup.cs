@@ -20,6 +20,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SubitonAPI.Data;
 using SubitonAPI.Helper;
+using SubitonAPI.Helpers;
 
 namespace SubitonAPI
 {
@@ -81,7 +82,7 @@ namespace SubitonAPI
 
                         if (error != null)
                         {
-                            context.Response.AddApplicationError(error.Error);
+                            context.Response.AddApplicationError(error.Error.Message);
                             await context.Response.WriteAsync(error.Error.Message);
                         }
                     });
