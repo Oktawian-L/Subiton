@@ -32,7 +32,7 @@ constructor(private http: HttpClient) {
 
  // Register new user
  register(model: any) {
-  return this.http.post(this.baseUrl + 'register', model);
+   return this.http.post('https://localhost:44363/api/AuthController/register', model);
  }
  // check if user is logged in true if token exists
  loggedIn() {
