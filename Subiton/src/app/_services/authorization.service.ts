@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthorizationService {
   baseUrl = environment.apiUrl + 'AuthController/';
+  extendUrl = 'https://localhost:44363/api/AuthController';
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 constructor(private http: HttpClient) {
@@ -32,7 +33,7 @@ constructor(private http: HttpClient) {
 
  // Register new user
  register(model: any) {
-   return this.http.post('https://localhost:44363/api/AuthController/register', model);
+   return this.http.post(this.extendUrl + '/register', model);
  }
  // check if user is logged in true if token exists
  loggedIn() {
