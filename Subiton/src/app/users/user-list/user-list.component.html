@@ -1,8 +1,13 @@
-<div>
-  component
+<div class="container mt-4">
+  <div>
+    <div>
+      <div class="row">
+        <div *ngFor="let user of users">
+          <app-user-card [user]='user'></app-user-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
-<div>
-  <p *ngFor="let user of users">
-    <app-user-card [user]='user'></app-user-card>
-  </p>
-</div>
+
