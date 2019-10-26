@@ -3,6 +3,6 @@
 </div>
 <div>
   <p *ngFor="let user of users">
-    {{user.username}} - {{user.age}} - {{user.furColor}}
+    <app-user-card [user]='user'></app-user-card>
   </p>
 </div>
