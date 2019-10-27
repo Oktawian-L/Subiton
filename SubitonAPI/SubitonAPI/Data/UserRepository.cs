@@ -33,7 +33,9 @@ namespace SubitonAPI.Data
         /// <returns></returns>
         public async Task<User> GetUser(int UserID)
         {
-            var user = await _context.Users.Include(p => p.Photos).FirstOrDefaultAsync();
+            var user = await _context.Users.Where(p => p.Id == UserID)
+                .Include(p => p.Photos)
+                .FirstOrDefaultAsync();
             return user;
         }
     }

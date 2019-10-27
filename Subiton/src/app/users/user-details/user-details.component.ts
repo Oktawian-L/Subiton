@@ -23,7 +23,7 @@ export class UserDetailsComponent implements OnInit {
 
   // get user details for profile
   loadUser() {
-    this.userServices.getUser(+this.route.snapshot.params['id'])
+    this.userServices.getUser(+this.route.snapshot.params.id)
     .subscribe((userFromService: User) => {
       this.user = userFromService;
     }, error => {

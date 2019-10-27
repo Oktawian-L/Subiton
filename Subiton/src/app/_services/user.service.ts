@@ -25,6 +25,7 @@ constructor(private http: HttpClient) { }
   }
   // call backend api to single user data
   public getUser(id: number): Observable<User> {
+    console.log(this.baseUrl + 'Users/' + id );
     return this.http.get<User>(this.baseUrl + 'Users/' + id );
   }
 }
