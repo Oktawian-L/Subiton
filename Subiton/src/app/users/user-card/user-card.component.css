@@ -4,16 +4,46 @@ img {
 }
 .card{
   transform: scale(1.0, 1.0);
-  transition-duration: 300ms;
+  transition-duration: 400ms;
   transition-timing-function: ease-in-out;
 }
 .card:hover{
   transform: scale(1.2, 1.2);
-  transition-duration: 300ms;
+  transition-duration: 400ms;
   transition-timing-function: ease-in-out;
+  z-index: 3;
 }
 .card{
+  width:20em;
+  height: 80%;
+  margin-left: 4px;
   overflow: hidden;
+}
+.btn {
+  bottom: -30%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  width:50px;
+}
+.card:hover .btn {
+  bottom: 0;
+  opacity: 1;
+  margin-left: 10px;
+  margin-right: 10px;
+  width:50px;
+}
+
+.animate {
+  transition: all 0.4s ease-in-out;
+}
+
+.type-icon{
+  color: lightseagreen;
+  margin-top: 4px;
+  margin-left: 4px;
 }
 
 
