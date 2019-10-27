@@ -22,6 +22,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { UserCardComponent } from './users/user-card/user-card.component';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
 
 // defining reading token early om
 export function tokenGetter() {
@@ -37,7 +38,8 @@ export function tokenGetter() {
       UserListComponent,
       LikesComponent,
       MessagesComponent,
-      UserCardComponent
+      UserCardComponent,
+      UserDetailsComponent
    ],
    imports: [
       BrowserModule,
