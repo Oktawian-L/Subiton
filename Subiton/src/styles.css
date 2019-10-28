@@ -3,22 +3,40 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
-
+/*user tab border*/
 .tab-panel{
-  border: 1px solid grey;
+  border: 1px solid white;
   padding: 10px;
   border-radius:4px;
 }
+/*hovering over user tabs*/
 .nav-tabs > li.open, .user-tabset > .nav-tabs >li:hover {
   border-bottom: 4px solid #5bbbdb;
 }
+/*tabs text , defineing bootstrap defualt style*/
 .user-tabset > .nav-tabs > li.open > a, .user-tabset >.nav-tabs > li:hover > a {
   border: 0;
   background: none !important;
   color: #333333;
 }
+/*active user tabs border*/
 .user-tabset > .nav-tabs >li.active {
   border-bottom: 4px solid  #008cba;
   position: relative;
 }
-
+/*active user tabs text*/
+.user-tabset > .nav-tabs > li.active > a {
+  border:0 !important;
+  color: #008cba;
+}
+.user-tabset > .nav-tabs > li.active > a > i {
+  color:white;
+}
+/*user form, background*/
+.user-tabset > .tab-content {
+  margin-top: -3px;
+  background-color: #fff;
+  border: 0;
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+}

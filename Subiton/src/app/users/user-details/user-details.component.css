@@ -25,10 +25,12 @@
 .nav-tabs > li.open, .user-tabset > .nav-tabs >li:hover {
   border-bottom: 14px solid blue;
 }
-.user-tabset > .nav-tabs > li.open > a, .user-tabset >.nav-tabs > li:hover > a {
-  border: 0;
-  background: none !important;
-  color: #333333;
-
+.user-table {
+   width: 100%;
+   margin-top: 8px;
+}
+.user-table-td {
+  width: 50%;
+  margin-top: 8px;
 }
 
