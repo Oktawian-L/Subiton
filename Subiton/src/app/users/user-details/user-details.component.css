@@ -9,4 +9,20 @@
 .card-footer {
   padding: 0 15px;
   border-top: none;
+  margin-bottom: 10px;
 }
+.tr {
+  border: black;
+  border-style: solid;
+  border-width: 5px;
+  width: 50%;
+}
+.tab-panel{
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius:4px;
+}
+.nav-tabs > li.open, .user-tabset > .nav-tabs >li:hover {
+  border-bottom: 4px solid blue;
+}
+

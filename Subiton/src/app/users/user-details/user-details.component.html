@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}" alt="{{user.username}}">
+        <img class="card-img-top img-thumbnail" src="{{user?.photoUrl}}" alt="{{user?.username}}">
         <div class="card-body">
           <div>
             <strong>Wiek</strong>
@@ -13,7 +13,7 @@
             <p>{{user?.city}}, {{user?.country}}</p>
           </div>
           <div>
-            <strong>Rasa</strong>
+            <strong>Breed</strong>
             <p>{{user?.rasa}}</p>
           </div>
           <div>
@@ -23,14 +23,84 @@
         </div>
         <div class="card-footer">
           <div class="btn-group d-flex">
-            <button class="btn btn-primary w-100"><i class="fa fa-thumbs-up"></i>  Like</button>
-            <button class="btn btn-warning w-100"><i class="fa fa-envelope"></i>  Message</button>
+            <button class="btn btn-primary w-100"><i class="fa fa-thumbs-up"></i> Like</button>
+            <button class="btn btn-warning w-100"><i class="fa fa-envelope"></i> Message</button>
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-8">
-      Extended data
+      <div class="tab-panel">
+        <tabset class="user-tabset">
+          <tab heading="{{user?.username}}'s profile" id="profile_tab1">
+            <table style="width: 100%; margin-top: 8px;">
+              <tr>
+                <td>
+                  <h5><strong>Height</strong></h5>
+                  <p>{{user?.height}}</p>
+                </td>
+                <td>
+                  <h5><strong>Weight</strong></h5>
+                  <p>{{user?.weight}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5><strong>Education</strong></h5>
+                  <p>{{user?.education}}</p>
+                </td>
+                <td>
+                  <h5><strong>Interests</strong></h5>
+                  <p>{{user?.interests}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5><strong>Nature</strong></h5>
+                  <p>{{user?.nature}}</p>
+                </td>
+                <td>
+                  <h5><strong>Looking for</strong></h5>
+                  <p>{{user?.lookingFor}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5><strong>Free time activities</strong></h5>
+                  <p>{{user?.freeTimeActivities}}</p>
+                </td>
+                <td>
+                  <h5><strong>Last time active</strong></h5>
+                  <p>{{user?.lastActive}}</p>
+                </td>
+              </tr>
+            </table>
+            <td>
+              <h5><strong>Description</strong></h5>
+              <p>{{user?.description}}</p>
+            </td>
+          </tab>
+          <tab heading="About me">
+            <div style="margin-top: 8px;">
+              <h5><strong>Free time activities</strong></h5>
+              <p>{{user?.freeTimeActivities}}</p>
+              <h5><strong>Martial status</strong></h5>
+              <p>{{user?.martialStatus}}</p>
+              <h5><strong>Nature</strong></h5>
+              <p>{{user?.nature}}</p>
+              <h5><strong>Description</strong></h5>
+              <p>{{user?.description}}</p>
+            </div>
+          </tab>
+          <tab heading="Gallery">
+            <img alt="funny,pet,dog,animal gif" class="alignnone size-full wp-image-28441 last"
+              src="http://www.sharegif.com/wp-content/uploads/2014/05/funnypetdoganimal-gif.gif" width="498"
+              height="249">
+            <br />
+            <img src="http://i.stack.imgur.com/SBv4T.gif" alt="this slowpoke moves" width=250 />
+          </tab>
+        </tabset>
+      </div>
     </div>
   </div>
 </div>
