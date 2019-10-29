@@ -4,8 +4,9 @@ import { User } from '../_models/user';
 import { UserService } from '../_services/user.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { ActivatedRouteSnapshot } from '@angular/router';
-import { RouterStateSnapshot } from '@angular/router';p
-import { Observable } from 'rxjs';
+import { RouterStateSnapshot } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 
@@ -16,10 +17,15 @@ export class UserDetailResolver implements Resolve<User> {
               private router: Router,
               private alertify: AlertifyService ) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
-          : User |Observable<User> | Promise<User> {
-    throw new Error('Method not implemented.');
+  resolve(route: ActivatedRouteSnapshot): Observable<User> {
+    return this.userService.getUser(route.params.id).pipe(
+      catchError(error => {
+        this.alertify.error('Cannot get user data');
+        this.router.navigate(['/users']);
+        return of(null);
+      })
+    )
+    ;
   }
-
 }
 
