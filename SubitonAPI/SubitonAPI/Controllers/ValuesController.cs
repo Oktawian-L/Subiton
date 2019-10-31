@@ -91,6 +91,15 @@ namespace SubitonAPI.Controllers
             return CreatedAtAction("GetValues", new { id = values.Id }, values);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<Values>> PostValues2(Values values)
+        {
+            _context.Values.Add(values);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetValues", new { id = values.Id }, values);
+        }
+
         // DELETE: api/Values/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Values>> DeleteValues(int id)
