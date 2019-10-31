@@ -18,7 +18,10 @@ export class UserDetailsComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadUser();
+    // this.loadUser();
+    this.route.data.subscribe(data => {
+      this.user = data.user;
+    });
   }
 
   // get user details for profile

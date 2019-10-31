@@ -2,23 +2,23 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{user?.photoUrl}}" alt="{{user?.username}}">
+        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}" alt="{{user.username}}">
         <div class="card-body">
           <div>
             <strong>Wiek</strong>
-            <p>{{user?.age}}</p>
+            <p>{{user.age}}</p>
           </div>
           <div>
             <strong>City</strong>
-            <p>{{user?.city}}, {{user?.country}}</p>
+            <p>{{user.city}}, {{user.country}}</p>
           </div>
           <div>
             <strong>Breed</strong>
-            <p>{{user?.rasa}}</p>
+            <p>{{user.rasa}}</p>
           </div>
           <div>
             <strong>Fur color</strong>
-            <p>{{user?.furColor}}</p>
+            <p>{{user.furColor}}</p>
           </div>
         </div>
         <div class="card-footer">
@@ -32,64 +32,64 @@
     <div class="col-sm-8">
       <div class="tab-panel">
         <tabset class="user-tabset">
-          <tab heading="{{user?.username}}'s profile" id="profile_tab1">
+          <tab heading="{{user.username}}'s profile" id="profile_tab1">
             <table class="user-table">
               <tr>
                 <td class="user-table-td" >
                   <h5><strong>Height</strong></h5>
-                  <p>{{user?.height}}</p>
+                  <p>{{user.height}}</p>
                 </td>
                 <td>
                   <h5><strong>Weight</strong></h5>
-                  <p>{{user?.weight}}</p>
+                  <p>{{user.weight}}</p>
                 </td>
               </tr>
               <tr>
                 <td>
                   <h5><strong>Education</strong></h5>
-                  <p>{{user?.education}}</p>
+                  <p>{{user.education}}</p>
                 </td>
                 <td>
                   <h5><strong>Interests</strong></h5>
-                  <p>{{user?.interests}}</p>
+                  <p>{{user.interests}}</p>
                 </td>
               </tr>
               <tr>
                 <td>
                   <h5><strong>Nature</strong></h5>
-                  <p>{{user?.nature}}</p>
+                  <p>{{user.nature}}</p>
                 </td>
                 <td>
                   <h5><strong>Looking for</strong></h5>
-                  <p>{{user?.lookingFor}}</p>
+                  <p>{{user.lookingFor}}</p>
                 </td>
               </tr>
               <tr>
                 <td>
                   <h5><strong>Free time activities</strong></h5>
-                  <p>{{user?.freeTimeActivities}}</p>
+                  <p>{{user.freeTimeActivities}}</p>
                 </td>
                 <td>
                   <h5><strong>Last time active</strong></h5>
-                  <p>{{user?.lastActive}}</p>
+                  <p>{{user.lastActive}}</p>
                 </td>
               </tr>
             </table>
             <td>
               <h5><strong>Description</strong></h5>
-              <p>{{user?.description}}</p>
+              <p>{{user.description}}</p>
             </td>
           </tab>
           <tab heading="About me">
             <div style="margin-top: 8px;">
               <h5><strong>Free time activities</strong></h5>
-              <p>{{user?.freeTimeActivities}}</p>
+              <p>{{user.freeTimeActivities}}</p>
               <h5><strong>Martial status</strong></h5>
-              <p>{{user?.martialStatus}}</p>
+              <p>{{user.martialStatus}}</p>
               <h5><strong>Nature</strong></h5>
-              <p>{{user?.nature}}</p>
+              <p>{{user.nature}}</p>
               <h5><strong>Description</strong></h5>
-              <p>{{user?.description}}</p>
+              <p>{{user.description}}</p>
             </div>
           </tab>
           <tab heading="Gallery">
