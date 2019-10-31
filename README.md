@@ -1,5 +1,10 @@
 # SUBITON
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_SubitonAPI&metric=alert_status)](https://sonarcloud.io/dashboard?id=Oktawian-L_SubitonAPI)
+
+Animal dating app
+
+
   ![Logo](https://github.com/Oktawian-L/Subiton/blob/master/SubitonAPI/Resources/RepoPresent.png "Optional title")
 
 
