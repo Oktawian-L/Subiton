@@ -157,3 +157,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Exclusions for copy-paste detection
 #sonar.cpd.exclusions=
+
+https://sonarcloud.io/dashboard?id=Oktawian-L_Subiton
