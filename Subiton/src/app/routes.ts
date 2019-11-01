@@ -11,7 +11,7 @@ export const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', runGuardsAndResolvers: 'always', canActivate: [AuthGuard],
     children: [
-      { path: 'users', component: UserListComponent },
+      { path: 'users', component: UserListComponent, resolve: { users: UserListResolver } },
       { path: 'users/:id', component: UserDetailsComponent, resolve: {user: UserDetailResolver} },
       { path: 'likes', component: LikesComponent },
       { path: 'messages', component: MessagesComponent }
