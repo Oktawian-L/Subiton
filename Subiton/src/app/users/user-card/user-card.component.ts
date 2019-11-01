@@ -15,8 +15,11 @@ export class UserCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  IsMale() {
-    return true;
+  IsMale(genderNumber: any) {
+    if (genderNumber === '1') {
+      return true;
+    } else {
+      return false;
+    }
   }
-
 }
