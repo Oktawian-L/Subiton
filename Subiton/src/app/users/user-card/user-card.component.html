@@ -1,18 +1,16 @@
 <div class="card">
   <div class="animal-type-icon">
-    <img *ngIf="getAnimalType(user.rasa) == 0" src="assets/AnimalType0.png" alt="AnimalType">
-    <img *ngIf="getAnimalType(user.rasa) == 1" src="assets/AnimalType1.png" alt="AnimalType">
-    <img *ngIf="getAnimalType(user.rasa) == 2" src="assets/AnimalType2.png" alt="AnimalType">
-    <img *ngIf="getAnimalType(user.rasa) == 3" src="assets/AnimalType3.png" alt="AnimalType">
-    <img *ngIf="getAnimalType(user.rasa) == 4" src="assets/AnimalType4.png" alt="AnimalType">
-    <img *ngIf="getAnimalType(user.rasa) == 5" src="assets/AnimalType5.png" alt="AnimalType">
-    <img *ngIf="getAnimalType(user.rasa) == 6" src="assets/AnimalType6.png" alt="AnimalType">
-    <img *ngIf="getAnimalType(user.rasa) == 7" src="assets/AnimalType7.png" alt="AnimalType">
-    <img *ngIf="getAnimalType(user.rasa) == 8" src="assets/AnimalType8.png" alt="AnimalType">
-    <i *ngIf="getAnimalType(user.rasa) == 9 " class="fa fa-paw type-icon"></i>
+    <img *ngIf="getAnimalType(user.animalType) == 0" src="assets/AnimalType0.png" alt="AnimalType">
+    <img *ngIf="getAnimalType(user.animalType) == 1" src="assets/AnimalType1.png" alt="AnimalType">
+    <img *ngIf="getAnimalType(user.animalType) == 2" src="assets/AnimalType2.png" alt="AnimalType">
+    <img *ngIf="getAnimalType(user.animalType) == 3" src="assets/AnimalType3.png" alt="AnimalType">
+    <img *ngIf="getAnimalType(user.animalType) == 4" src="assets/AnimalType4.png" alt="AnimalType">
+    <img *ngIf="getAnimalType(user.animalType) == 5" src="assets/AnimalType5.png" alt="AnimalType">
+    <img *ngIf="getAnimalType(user.animalType) == 6" src="assets/AnimalType6.png" alt="AnimalType">
+    <img *ngIf="getAnimalType(user.animalType) == 7" src="assets/AnimalType7.png" alt="AnimalType">
+    <img *ngIf="getAnimalType(user.animalType) == 8" src="assets/AnimalType8.png" alt="AnimalType">
+    <i *ngIf="getAnimalType(user.animalType) == 9 " class="fa fa-paw type-icon"></i>
   </div>
-
-
   <img src={{user.photoUrl}} class="card-img-top" style="object-fit: scale-down;" alt="{{user.username}}">
   <div class="card-body text-center user-icons">
     <h5 class="card-title">

@@ -1,4 +1,4 @@
-img {
+.card img {
   object-fit: contain;
   height: 50%;
 }
@@ -47,8 +47,10 @@ img {
   margin-top: 4px;
   margin-left: 4px;
 }
-.animal-type-icon{
-  height: 50px;
-  width: 50px;
+.animal-type-icon img{
+  height: 25px;
+  width: 25px;
+  padding: 5px;
+
 }
 
