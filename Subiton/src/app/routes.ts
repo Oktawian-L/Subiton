@@ -6,6 +6,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserDetailResolver } from './_resolvers/user-details.resolver';
+import { UserListResolver } from './_resolvers/user-list.resolver';
 
 export const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },

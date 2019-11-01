@@ -24,6 +24,8 @@ import { AuthGuard } from './_guards/auth.guard';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { UserCardComponent } from './users/user-card/user-card.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { UserDetailResolver } from './_resolvers/user-details.resolver';
+import { UserListResolver } from './_resolvers/user-list.resolver';
 
 // defining reading token early om
 export function tokenGetter() {
@@ -63,7 +65,9 @@ export function tokenGetter() {
       AlertifyService,
       UserService,
       AuthGuard,
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      UserDetailResolver,
+      UserListResolver
    ],
    bootstrap: [
       AppComponent
