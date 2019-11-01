@@ -18,7 +18,9 @@ export class UserListComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.
+    this.route.data.subscribe(data => {
+      this.users = data.users;
+    });
   }
   /*// get all users
   loadUsers() {
