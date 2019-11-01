@@ -22,4 +22,7 @@ export class UserCardComponent implements OnInit {
       return false;
     }
   }
+  getAnimalType(animaltype: any) {
+    return 0;
+  }
 }
