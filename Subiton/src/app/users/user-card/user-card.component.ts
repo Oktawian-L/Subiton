@@ -9,10 +9,14 @@ import { User } from 'src/app/_models/user';
 export class UserCardComponent implements OnInit {
 
   @Input() user: User;
-  
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  IsMale() {
+    return true;
   }
 
 }
