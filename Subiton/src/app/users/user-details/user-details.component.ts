@@ -52,7 +52,7 @@ export class UserDetailsComponent implements OnInit {
         preview: false
       }
     ];
-
+    this.galleryImages = this.getImages();
     this.galleryImages = [
       {
         small: 'assets/lucy.png',
@@ -74,6 +74,8 @@ export class UserDetailsComponent implements OnInit {
 
   getImages() {
       const imageUrls = [];
+
+      // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < this.user.photos.length; i++) {
         imageUrls.push({
           small: this.user.photos[i].Url,
