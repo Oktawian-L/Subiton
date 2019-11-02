@@ -78,11 +78,11 @@ export class UserDetailsComponent implements OnInit {
   getImages() {
     this.photom = this.user.photos;
     console.log( this.user.photos);
-    console.log(this.photom);
-    console.log('PHOTOURL2 ' + this.photom[0].DateAdded);
-    console.log('PHOTOURL3 ' + this.photom[0].Description);
-    console.log('PHOTOURL4 ' + this.photom[0].IsMain);
-    console.log('PHOTOURL5 ' + this.photom[0].Set_user_nrid);
+    console.log(this.photom[0]);
+    console.log('PHOTOURL2 ' + this.photom[0].dateAdded);
+    console.log('PHOTOURL3 ' + this.photom[0].description);
+    console.log('PHOTOURL4 ' + this.photom[0].isMain);
+    console.log('PHOTOURL5 ' + this.photom[0].set_user_nrid);
     console.log('PHOTOURL6 ' + this.photom[0].id);
     const imageUrls = [];
 /*
@@ -96,11 +96,11 @@ export class UserDetailsComponent implements OnInit {
       // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < 1; i++) {
         imageUrls.push({
-          small: this.user.photos[i].Url,
-          medium: this.user.photos[i].Url,
-          big: this.user.photos[i].Url,
+          small: this.user.photos[i].url,
+          medium: this.user.photos[i].url,
+          big: this.user.photos[i].url,
           description : 'lucy',
-          url: this.user.photos[i].Url,
+          url: this.user.photos[i].url,
           label: 'lucy'
         });
       }
