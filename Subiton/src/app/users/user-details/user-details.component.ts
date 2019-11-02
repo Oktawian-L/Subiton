@@ -32,6 +32,8 @@ export class UserDetailsComponent implements OnInit {
         width: '600px',
         height: '400px',
         thumbnailsColumns: 4,
+        imagePercent: 100,
+        preview: true,
         imageAnimation: NgxGalleryAnimation.Slide
       },
       // max-width 800
@@ -70,6 +72,18 @@ export class UserDetailsComponent implements OnInit {
     ];
   }
 
+  getImages() {
+      const imageUrls = [];
+      for (let i = 0; i < this.user.photos.length; i++) {
+        imageUrls.push({
+          small: this.user.photos[i].Url,
+          medium: this.user.photos[i].Url,
+          big: this.user.photos[i].Url,
+          description: this.user.photos[i].Description
+        });
+      }
+      return imageUrls;
+  }
 
   // get user details for profile
   loadUser() {
