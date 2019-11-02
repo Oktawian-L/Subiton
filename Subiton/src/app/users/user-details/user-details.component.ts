@@ -15,7 +15,6 @@ import { Photo } from 'src/app/_models/_photo';
 export class UserDetailsComponent implements OnInit {
 
   user: User;
-  photom: Photo[];
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
@@ -56,52 +55,21 @@ export class UserDetailsComponent implements OnInit {
       }
     ];
     this.galleryImages = this.getImages();
-    /*this.galleryImages = [
-      {
-        small: 'assets/lucy.png',
-        medium: 'assets/lucy.png',
-        big: 'assets/lucy.png'
-      },
-      {
-        small: 'assets/lucy-1.PNG',
-        medium: 'assets/lucy-1.PNG',
-        big: 'assets/2lucy-1.PNG'
-      },
-      {
-        small: 'assets/lucy-2.PNG',
-        medium: 'assets/lucy-2.PNG',
-        big: 'assets/lucy-2.PNG'
-      }
-    ];*/
   }
 
   getImages() {
-    this.photom = this.user.photos;
-    console.log( this.user.photos);
-    console.log(this.photom[0]);
-    console.log('PHOTOURL2 ' + this.photom[0].dateAdded);
-    console.log('PHOTOURL3 ' + this.photom[0].description);
-    console.log('PHOTOURL4 ' + this.photom[0].isMain);
-    console.log('PHOTOURL5 ' + this.photom[0].set_user_nrid);
-    console.log('PHOTOURL6 ' + this.photom[0].id);
+
     const imageUrls = [];
-/*
-    small | Type: string | SafeResourceUrl - url used in thumbnails
-    medium | Type: string | SafeResourceUrl - url used in image
-    big | Type: string | SafeResourceUrl - url used in preview
-    description | Type: string - description used in preview
-    url | Type: string - url used in link
-    label | Type: string - label used for aria - label when thumbnail is a link
-*/
-      // tslint:disable-next-line:prefer-for-of
+
+    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < 1; i++) {
         imageUrls.push({
           small: this.user.photos[i].url,
           medium: this.user.photos[i].url,
           big: this.user.photos[i].url,
-          description : 'lucy',
+          description: this.user.photos[i].description,
           url: this.user.photos[i].url,
-          label: 'lucy'
+          label: this.user.photos[i].dateAdded
         });
       }
     return imageUrls;
