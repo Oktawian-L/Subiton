@@ -2,6 +2,7 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_SubitonAPI&metric=alert_status)](https://sonarcloud.io/dashboard?id=Oktawian-L_SubitonAPI)
 [![Build Status](https://dev.azure.com/oktawianlasek0347/Subiton/_apis/build/status/Subiton-.NET%20Core%20with%20SonarCloud-CI%20(1)?branchName=master)](https://dev.azure.com/oktawianlasek0347/Subiton/_build/latest?definitionId=3&branchName=master)
+[![License](https://github.com/Oktawian-L/Subiton/blob/master/LICENSE)](https://github.com/Oktawian-L/Subiton/blob/master/LICENSE)
 
 Animal dating app
 
