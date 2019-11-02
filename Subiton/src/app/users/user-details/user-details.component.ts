@@ -4,6 +4,8 @@ import { User } from 'src/app/_models/user';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryOptions, NgxGalleryImage } from 'ngx-gallery';
+import { PathLocationStrategy } from '@angular/common';
+import { Photo } from 'src/app/_models/_photo';
 
 @Component({
   selector: 'app-user-details',
@@ -13,6 +15,7 @@ import { NgxGalleryAnimation, NgxGalleryOptions, NgxGalleryImage } from 'ngx-gal
 export class UserDetailsComponent implements OnInit {
 
   user: User;
+  photom: Photo[];
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
@@ -73,7 +76,14 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getImages() {
-    console.log('PHOTOURL '+ this.user.photos[0].Url);
+    this.photom = this.user.photos;
+    console.log( this.user.photos);
+    console.log(this.photom);
+    console.log('PHOTOURL2 ' + this.photom[0].DateAdded);
+    console.log('PHOTOURL3 ' + this.photom[0].Description);
+    console.log('PHOTOURL4 ' + this.photom[0].IsMain);
+    console.log('PHOTOURL5 ' + this.photom[0].Set_user_nrid);
+    console.log('PHOTOURL6 ' + this.photom[0].id);
     const imageUrls = [];
 /*
     small | Type: string | SafeResourceUrl - url used in thumbnails
@@ -86,11 +96,11 @@ export class UserDetailsComponent implements OnInit {
       // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < 1; i++) {
         imageUrls.push({
-          small: 'assets/lucy-1.PNG',
-          medium: 'assets/lucy-1.PNG',
-          big: 'assets/lucy-1.PNG',
+          small: this.user.photos[i].Url,
+          medium: this.user.photos[i].Url,
+          big: this.user.photos[i].Url,
           description : 'lucy',
-          url: 'assets/lucy-1.PNG',
+          url: this.user.photos[i].Url,
           label: 'lucy'
         });
       }

@@ -1,9 +1,9 @@
 export interface Photo {
   id: number;
-  Url ?: any;
-  Description?: any;
+  Url: any;
+  Description: any;
   DateAdded: Date;
-  IsMain?: any;
+  IsMain: any;
   Set_user_nrid: number;
 }
 
