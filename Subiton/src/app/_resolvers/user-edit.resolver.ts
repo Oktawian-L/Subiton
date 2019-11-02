@@ -7,21 +7,24 @@ import { ActivatedRouteSnapshot } from '@angular/router';
 import { RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { AuthorizationService } from '../_services/authorization.service';
 
 @Injectable()
 
-export class UserListResolver implements Resolve<User> {
+export class UserEditResolver implements Resolve<User> {
 
 
   constructor(private userService: UserService,
               private router: Router,
-              private alertify: AlertifyService ) { }
+              private alertify: AlertifyService,
+              private authService: AuthorizationService ) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<User> {
-    return this.userService.getUsers().pipe(
+    return this.userService.getUser(this.authService.decodedToken.nameid[0]).pipe(
       catchError(error => {
-        this.alertify.error('Cannot get users data1');
-        this.router.navigate(['']);
+        console.log(this.authService.decodedToken.nameid[0]);
+        this.alertify.error('Cannot get user data2');
+        this.router.navigate(['/users']);
         return of(null);
       })
     )

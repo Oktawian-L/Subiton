@@ -20,7 +20,7 @@ export class UserDetailResolver implements Resolve<User> {
   resolve(route: ActivatedRouteSnapshot): Observable<User> {
     return this.userService.getUser(route.params.id).pipe(
       catchError(error => {
-        this.alertify.error('Cannot get user data');
+        this.alertify.error('Cannot get user data0');
         this.router.navigate(['/users']);
         return of(null);
       })
