@@ -73,7 +73,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   getImages() {
-    console.log(this.user.photos[0].Url);
+    console.log('PHOTOURL '+ this.user.photos[0].Url);
     const imageUrls = [];
 /*
     small | Type: string | SafeResourceUrl - url used in thumbnails

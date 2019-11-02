@@ -35,6 +35,7 @@ namespace SubitonAPI.Helper
                     opt.MapFrom((src, d) => src.DateOfBirth.CalculateAge());
                 });
             CreateMap<Photo, PhotoDTO>();
+            CreateMap<PhotoDTO, Photo>();
         }
     }
 }
