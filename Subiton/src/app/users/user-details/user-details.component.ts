@@ -53,38 +53,48 @@ export class UserDetailsComponent implements OnInit {
       }
     ];
     this.galleryImages = this.getImages();
-    this.galleryImages = [
+    /*this.galleryImages = [
       {
         small: 'assets/lucy.png',
         medium: 'assets/lucy.png',
         big: 'assets/lucy.png'
       },
       {
-        small: 'assets/lucy-1.png',
-        medium: 'assets/lucy-1.png',
-        big: 'assets/2lucy-1.png'
+        small: 'assets/lucy-1.PNG',
+        medium: 'assets/lucy-1.PNG',
+        big: 'assets/2lucy-1.PNG'
       },
       {
-        small: 'assets/lucy-2.png',
-        medium: 'assets/lucy-2.png',
-        big: 'assets/lucy-2.png'
+        small: 'assets/lucy-2.PNG',
+        medium: 'assets/lucy-2.PNG',
+        big: 'assets/lucy-2.PNG'
       }
-    ];
+    ];*/
   }
 
   getImages() {
-      const imageUrls = [];
-
+    console.log(this.user.photos[0].Url);
+    const imageUrls = [];
+/*
+    small | Type: string | SafeResourceUrl - url used in thumbnails
+    medium | Type: string | SafeResourceUrl - url used in image
+    big | Type: string | SafeResourceUrl - url used in preview
+    description | Type: string - description used in preview
+    url | Type: string - url used in link
+    label | Type: string - label used for aria - label when thumbnail is a link
+*/
       // tslint:disable-next-line:prefer-for-of
-      for (let i = 0; i < this.user.photos.length; i++) {
+    for (let i = 0; i < 1; i++) {
         imageUrls.push({
-          small: this.user.photos[i].Url,
-          medium: this.user.photos[i].Url,
-          big: this.user.photos[i].Url,
-          description: this.user.photos[i].Description
+          small: 'assets/lucy-1.PNG',
+          medium: 'assets/lucy-1.PNG',
+          big: 'assets/lucy-1.PNG',
+          description : 'lucy',
+          url: 'assets/lucy-1.PNG',
+          label: 'lucy'
         });
       }
-      return imageUrls;
+    return imageUrls;
   }
 
   // get user details for profile

@@ -36,6 +36,9 @@ namespace SubitonAPI.Data
             var user = await _context.Users.Where(p => p.Id == UserID)
                 .Include(p => p.Photos)
                 .FirstOrDefaultAsync();
+
+            user.Photos = _context.Photos.Where(x => x.set_user_nrid == user.Id).ToList();
+
             return user;
         }
     }
