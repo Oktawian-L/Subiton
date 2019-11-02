@@ -31,12 +31,18 @@ export class UserDetailsComponent implements OnInit {
 
     this.galleryOptions = [
       {
-        width: '500px',
+        width: '100%',
         height: '500px',
         thumbnailsColumns: 4,
         imagePercent: 100,
         preview: true,
-        imageAnimation: NgxGalleryAnimation.Slide
+        imageAnimation: NgxGalleryAnimation.Slide,
+        previewZoomMax: 4,
+        previewZoomMin: 1,
+        previewRotate: true,
+        previewBullets: true,
+        imageDescription: true,
+        imageSwipe : true
       },
       // max-width 800
       {
@@ -62,7 +68,7 @@ export class UserDetailsComponent implements OnInit {
     const imageUrls = [];
 
     // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < this.user.photos.length; i++) {
         imageUrls.push({
           small: this.user.photos[i].url,
           medium: this.user.photos[i].url,

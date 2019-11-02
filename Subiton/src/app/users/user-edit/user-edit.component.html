@@ -1,3 +1,137 @@
-<p>
-  user-edit works!
-</p>
+<div class="container mt-3">
+  <div class="row">
+    <h1>
+      Edit your's pet profile
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}" alt="{{user.username}}">
+        <div class="card-body">
+          <div>
+            <strong>Wiek</strong>
+            <textarea class="form-control" name="age" rows="1" [(ngModel)]="user.age"></textarea>
+          </div>
+          <div>
+            <strong>City</strong>
+            <textarea class="form-control" name="city" rows="1" [(ngModel)]="user.city"></textarea>
+          </div>
+          <div>
+            <strong>country</strong>
+            <textarea class="form-control" name="country" rows="1" [(ngModel)]="user.country"></textarea>
+          </div>
+          <div>
+            <strong>Breed</strong>
+            <textarea class="form-control" name="breed" rows="1" [(ngModel)]="user.rasa"></textarea>
+          </div>
+          <div>
+            <strong>Fur color</strong>
+            <textarea class="form-control" name="furColor" rows="1" [(ngModel)]="user.furColor"></textarea>
+          </div>
+        </div>
+        <div class="card-footer">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <form>
+        <div class="tab-panel">
+          <tabset class="user-tabset">
+            <tab heading="Edit information" id="profile_tab1">
+              <table class="user-table">
+                <caption style="display: none;">User cards</caption>
+                <tr>
+                  <th scope="col">Basic data</th>
+                  <th scope="col">Basic data</th>
+                </tr>
+                <tr>
+                  <td class="user-table-td">
+                    <h5><strong>Height</strong></h5>
+                    <textarea class="form-control" name="Height" rows="1" [(ngModel)]="user.height"></textarea>
+                  </td>
+                  <td>
+                    <h5><strong>Weight</strong></h5>
+                    <textarea class="form-control" name="weight" rows="1" [(ngModel)]="user.weight"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5><strong>Education</strong></h5>
+                    <textarea class="form-control" name="Education" rows="1" [(ngModel)]="user.education"></textarea>
+                  </td>
+                  <td>
+                    <h5><strong>Interests</strong></h5>
+                    <textarea class="form-control" name="Interests" rows="1" [(ngModel)]="user.interests"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5><strong>Free time activities</strong></h5>
+                    <textarea class="form-control" name="freeTimeActivities" rows="1"
+                      [(ngModel)]="user.freeTimeActivities"></textarea>
+                  </td>
+                  <td>
+                    <h5><strong>Last time active</strong></h5>
+                    <textarea class="form-control" name="lastActive" rows="1" [(ngModel)]="user.lastActive"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5><strong>animalType</strong></h5>
+                    <textarea class="form-control" name="animalType" rows="1" [(ngModel)]="user.animalType"></textarea>
+                  </td>
+                  <td>
+                    <h5><strong>name</strong></h5>
+                    <textarea class="form-control" name="name" rows="1" [(ngModel)]="user.name"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5><strong>dateOfBirth</strong></h5>
+                    <textarea class="form-control" name="dateOfBirth" rows="1"
+                      [(ngModel)]="user.dateOfBirth"></textarea>
+                  </td>
+                  <td>
+                    <h5><strong>gender</strong></h5>
+                    <textarea class="form-control" name="gender" rows="1" [(ngModel)]="user.gender"></textarea>
+                  </td>
+                </tr>
+              </table>
+            </tab>
+            <tab heading="About me">
+              <div style="margin-top: 8px;">
+                <h5><strong>Free time activities</strong></h5>
+                <textarea class="form-control" name="freeTimeActivities" rows="2"
+                  [(ngModel)]="user.freeTimeActivities"></textarea>
+                <h5><strong>Martial status</strong></h5>
+                <textarea class="form-control" name="martialStatus" rows="2"
+                  [(ngModel)]="user.martialStatus"></textarea>
+                <h5><strong>Nature</strong></h5>
+                <textarea class="form-control" name="nature" rows="2" [(ngModel)]="user.nature"></textarea>
+                <h5><strong>Looking for</strong></h5>
+                <textarea class="form-control" name="lookingfor" rows="2" [(ngModel)]="user.lookingFor"></textarea>
+                <h5><strong>Description</strong></h5>
+                <textarea class="form-control" name="nature" rows="3" [(ngModel)]="user.description"></textarea>
+              </div>
+            </tab>
+            <tab heading="Gallery">
+              <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+              <div class="card-footer">
+                <div class="btn-group d-flex" style="margin-top: 15px;">
+                  <button class="btn btn-success w-100" style="margin-right: 15px;"><i class="fa fa-plus"></i> Add
+                    new</button>
+                  <button class="btn btn-info w-100" style="margin-right: 15px;"><i class="fa fa-thumbs-up"></i> Set as
+                    Main</button>
+                  <button class="btn btn-danger w-100" style="margin-right: 15px;"><i class="fa fa-times"></i>
+                    Delete</button>
+
+                </div>
+              </div>
+            </tab>
+          </tabset>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

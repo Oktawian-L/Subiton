@@ -13,6 +13,7 @@
             <strong>Wiek</strong>
             <p>{{user.age}}</p>
           </div>
+
           <div>
             <strong>City</strong>
             <p>{{user.city}}, {{user.country}}</p>
@@ -39,13 +40,13 @@
         <tabset class="user-tabset">
           <tab heading="{{user.username}}'s profile" id="profile_tab1">
             <table class="user-table">
-              <caption>User cards</caption>
-                <tr>
-                  <th scope="col">Basic data</th>
-                  <th scope="col">Basic data</th>
-                </tr>
+              <caption style="display: none;">User cards</caption>
               <tr>
-                <td class="user-table-td" >
+                <th scope="col">Basic data</th>
+                <th scope="col">Basic data</th>
+              </tr>
+              <tr>
+                <td class="user-table-td">
                   <h5><strong>Height</strong></h5>
                   <p>{{user.height}}</p>
                 </td>
@@ -66,8 +67,8 @@
               </tr>
               <tr>
                 <td>
-                  <h5><strong>Nature</strong></h5>
-                  <p>{{user.nature}}</p>
+                  <h5><strong>Gender</strong></h5>
+                  <p>Male</p>
                 </td>
                 <td>
                   <h5><strong>Looking for</strong></h5>
@@ -85,10 +86,6 @@
                 </td>
               </tr>
             </table>
-            <td>
-              <h5><strong>Description</strong></h5>
-              <p>{{user.description}}</p>
-            </td>
           </tab>
           <tab heading="About me">
             <div style="margin-top: 8px;">

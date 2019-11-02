@@ -29,6 +29,7 @@ namespace SubitonAPI.DTO
     /// <seealso cref="SubitonAPI.DTO.UserDTO" />
     public class UserForListDto: UserDTO
     {
+        public string Name { get; set; }
         public int Age { get; set; }
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }

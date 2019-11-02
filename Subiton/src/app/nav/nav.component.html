@@ -1,16 +1,19 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
-  <a class="navbar-brand" [routerLink]="['/home']"  >Subiton</a>
+    <a class="navbar-brand" [routerLink]="['/home']">Subiton</a>
 
     <ul *ngIf="isLoggedIn()" class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="router-link-active">
-        <a class="nav-link" [routerLink]="['/users']" >Users</a>
+        <a class="nav-link" [routerLink]="['/users']">Users</a>
       </li>
       <li class="nav-item" routerLinkActive="router-link-active">
         <a class="nav-link" [routerLink]="['/likes']">Favourite</a>
       </li>
       <li class="nav-item" routerLinkActive="router-link-active">
         <a class="nav-link" [routerLink]="['/messages']">Messages</a>
+      </li>
+      <li class="nav-item" routerLinkActive="router-link-active">
+        <a class="nav-link" [routerLink]="['/profile/edit']">My profile</a>
       </li>
     </ul>
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
@@ -26,9 +29,11 @@
     </div>
 
     <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
-      <input class="form-control mr-sm-2" type="text" placeholder="Username" [(ngModel)]="model.Username" name="username" required>
-      <input class="form-control mr-sm-2" type="password" placeholder="Password" [(ngModel)]="model.Password" name="password" required>
+      <input class="form-control mr-sm-2" type="text" placeholder="Username" [(ngModel)]="model.Username"
+        name="username" required>
+      <input class="form-control mr-sm-2" type="password" placeholder="Password" [(ngModel)]="model.Password"
+        name="password" required>
       <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log In</button>
     </form>
-    </div>
+  </div>
 </nav>

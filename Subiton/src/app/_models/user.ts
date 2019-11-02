@@ -25,4 +25,5 @@ export interface User {
     animalType: number;
     username: string;
     password?: any;
+    name?: any;
   }

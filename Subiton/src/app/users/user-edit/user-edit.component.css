@@ -1,0 +1,38 @@
+.img-thumbnail{
+  margin:15px;
+  width: 90%;
+  height: 90%;
+}
+.card-body {
+  padding: 0 15px;
+}
+.card-footer {
+  padding: 0 15px;
+  border-top: none;
+  margin-bottom: 10px;
+}
+.tr {
+  border: black;
+  border-style: solid;
+  border-width: 5px;
+  width: 50%;
+}
+.tab-panel{
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius:4px;
+}
+.nav-tabs > li.open, .user-tabset > .nav-tabs >li:hover {
+  border-bottom: 14px solid blue;
+}
+.user-table {
+   width: 100%;
+   margin-top: 8px;
+}
+.user-table-td {
+  width: 50%;
+  margin-top: 8px;
+}
+.textarea{
+  width: 90%;
+}

@@ -21,6 +21,14 @@ To run application
 * run backend with .net core 3.0+
 * run client - from console
 * go to projecty folder
+
+## Build Status
+
+&nbsp; | `master` | `dev`
+--- | --- | --- 
+**Chrome** | [![Windows Build Status](https://dev.azure.com/oktawianlasek0347/Subiton/_apis/build/status/Subiton-.NET%20Core%20with%20SonarCloud-CI%20(1)?branchName=master)](https://dev.azure.com/oktawianlasek0347/Subiton/_build/latest?definitionId=3&branchName=master)  |  [![Windows Build Status](https://dev.azure.com/oktawianlasek0347/Subiton/_apis/build/status/Subiton-.NET%20Core%20with%20SonarCloud-CI%20(1)?branchName=master)](https://dev.azure.com/oktawianlasek0347/Subiton/_build/latest?definitionId=3&branchName=master)
+**Firefox** |  [![Windows Build Status](https://dev.azure.com/oktawianlasek0347/Subiton/_apis/build/status/Subiton-.NET%20Core%20with%20SonarCloud-CI%20(1)?branchName=master)](https://dev.azure.com/oktawianlasek0347/Subiton/_build/latest?definitionId=3&branchName=master)|  [![Windows Build Status](https://dev.azure.com/oktawianlasek0347/Subiton/_apis/build/status/Subiton-.NET%20Core%20with%20SonarCloud-CI%20(1)?branchName=master)](https://dev.azure.com/oktawianlasek0347/Subiton/_build/latest?definitionId=3&branchName=master)
+
 ```
 npm update
 ```
