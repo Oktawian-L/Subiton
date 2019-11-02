@@ -6,6 +6,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_Subiton&metric=bugs)](https://sonarcloud.io/dashboard?id=Oktawian-L_Subiton)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_Subiton&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Oktawian-L_Subiton)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_Subiton&metric=security_rating)](https://sonarcloud.io/dashboard?id=Oktawian-L_Subiton)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_Subiton&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Oktawian-L_Subiton)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_Subiton&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Oktawian-L_Subiton)
 
 Animal dating app
