@@ -3,6 +3,9 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_SubitonAPI&metric=alert_status)](https://sonarcloud.io/dashboard?id=Oktawian-L_SubitonAPI)
 [![Build Status](https://dev.azure.com/oktawianlasek0347/Subiton/_apis/build/status/Subiton-.NET%20Core%20with%20SonarCloud-CI%20(1)?branchName=master)](https://dev.azure.com/oktawianlasek0347/Subiton/_build/latest?definitionId=3&branchName=master)
 [![License: GPL v3](https://img.shields.io/badge/license-MIT-green)](https://github.com/Oktawian-L/Subiton/blob/master/LICENSE)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_Subiton&metric=bugs)](https://sonarcloud.io/dashboard?id=Oktawian-L_Subiton)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_Subiton&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Oktawian-L_Subiton)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Oktawian-L_Subiton&metric=security_rating)](https://sonarcloud.io/dashboard?id=Oktawian-L_Subiton)
 
 Animal dating app
 
