@@ -30,6 +30,7 @@ import { UserDetailResolver } from './_resolvers/user-details.resolver';
 import { UserListResolver } from './_resolvers/user-list.resolver';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 // defining reading token early om
 export function tokenGetter() {
@@ -75,7 +76,8 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       UserDetailResolver,
       UserListResolver,
-      UserEditResolver
+      UserEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent

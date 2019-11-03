@@ -17,7 +17,7 @@ export class UserEditComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  @ViewChild('editForm') editForm: NgForm;
+  @ViewChild('editForm', { static: false }) editForm: NgForm;
 
   constructor(private route: ActivatedRoute,
               private alertify: AlertifyService) { }
