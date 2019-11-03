@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -54,19 +55,20 @@ namespace SubitonAPI.Controllers
             return Ok(userToreturn);
         }
 
-        /*
+        
         // PUT: api/Users/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public async Task<IActionResult> UpdateUser(int id, UserUpdateDTO user)
         {
-            if (id != user.Id)
+            if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
             {
-                return BadRequest();
+                return Unauthorized();
             }
+            var userFromRepo = await _userRepository.GetUser(id);
 
-            _userRepository.Entry(user).State = EntityState.Modified;
+            /*_userRepository.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -82,11 +84,11 @@ namespace SubitonAPI.Controllers
                 {
                     throw;
                 }
-            }
+            }*/
 
             return NoContent();
         }
-
+        /*
         // POST: api/Users
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

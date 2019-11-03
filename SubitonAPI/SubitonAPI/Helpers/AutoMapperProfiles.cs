@@ -36,6 +36,9 @@ namespace SubitonAPI.Helper
                 });
             CreateMap<Photo, PhotoDTO>();
             CreateMap<PhotoDTO, Photo>();
+
+            // from front-end
+            CreateMap<UserUpdateDTO, User>();
         }
     }
 }
