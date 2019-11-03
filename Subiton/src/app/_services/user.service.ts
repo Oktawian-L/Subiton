@@ -28,4 +28,5 @@ constructor(private http: HttpClient) { }
     console.log(this.baseUrl + 'Users/' + id );
     return this.http.get<User>(this.baseUrl + 'Users/' + id );
   }
+  updateUser(id: number, user: User) {}
 }
