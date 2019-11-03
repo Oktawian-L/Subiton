@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="col-sm-8">
-      <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+      <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser(editForm,user)">
         <div class="tab-panel">
           <tabset class="user-tabset">
             <tab heading="Edit information" id="profile_tab1">

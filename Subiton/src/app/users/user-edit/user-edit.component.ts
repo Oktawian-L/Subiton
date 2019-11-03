@@ -18,7 +18,7 @@ export class UserEditComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  @ViewChild('editForm', { static: false }) editForm: NgForm;
+  @ViewChild('editForm', { static: true }) editForm: NgForm;
 
   // random browser exit prevention, and show poup
   @HostListener('window:beforeunload', ['$event'])
@@ -35,9 +35,11 @@ export class UserEditComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.data.subscribe(data => {
-      this.user = data.user;
-    });
 
+      this.user = data.user;
+      console.log(this.user);
+      console.log(data.user);
+    });
 
     this.galleryOptions = [
       {
@@ -92,9 +94,15 @@ export class UserEditComponent implements OnInit {
   }
 
   // save chnages - edit profile
-  updateUser() {
-    this.userService.updateUser(this.user.id, this.user);
-    this.alertify.success('Succesfully saved changes.');
-    this.editForm.reset(this.user);
+  updateUser(form: NgForm, userPassed: User) {
+    form.resetForm(userPassed);
+    console.log(this.user);
+    this.userService.updateUser(this.user.id, userPassed)
+      .subscribe(next => {
+        this.alertify.success('Succesfully saved changes.');
+        // this.editForm.reset(this.user);
+    }, error => {
+          this.alertify.success(error);
+    });
   }
 }
