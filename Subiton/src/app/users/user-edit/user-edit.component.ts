@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryImage, NgxGalleryOptions, NgxGalleryAnimation } from 'ngx-gallery';
 import { AlertifyService } from 'src/app/_services/alertify.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-edit',
@@ -12,8 +13,11 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 export class UserEditComponent implements OnInit {
 
   user: User;
+
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+
+  @ViewChild('editForm') editForm: NgForm;
 
   constructor(private route: ActivatedRoute,
               private alertify: AlertifyService) { }
@@ -80,5 +84,6 @@ export class UserEditComponent implements OnInit {
   // save chnages - edit profile
   updateUser() {
     this.alertify.success('Succesfully saved changes.');
+    this.editForm.reset(this.user);
   }
 }
