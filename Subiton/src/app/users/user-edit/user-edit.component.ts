@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryImage, NgxGalleryOptions, NgxGalleryAnimation } from 'ngx-gallery';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -14,7 +15,8 @@ export class UserEditComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private alertify: AlertifyService) { }
 
   ngOnInit(): void {
 
@@ -73,5 +75,10 @@ export class UserEditComponent implements OnInit {
       });
     }
     return imageUrls;
+  }
+
+  // save chnages - edit profile
+  updateUser() {
+    this.alertify.success('Succesfully saved changes.');
   }
 }
