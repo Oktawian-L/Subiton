@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryImage, NgxGalleryOptions, NgxGalleryAnimation } from 'ngx-gallery';
@@ -18,6 +18,14 @@ export class UserEditComponent implements OnInit {
   galleryImages: NgxGalleryImage[];
 
   @ViewChild('editForm', { static: false }) editForm: NgForm;
+
+  // random browser exit prevention, and show poup
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any) {
+    if (this.editForm.dirty) {
+      $event.returnValue = true;
+    }
+  }
 
   constructor(private route: ActivatedRoute,
               private alertify: AlertifyService) { }
