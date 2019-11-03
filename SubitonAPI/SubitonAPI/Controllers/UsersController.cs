@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SubitonAPI.Data;
 using SubitonAPI.DTO;
 using SubitonAPI.Models;
@@ -60,23 +62,27 @@ namespace SubitonAPI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, UserUpdateDTO user)
+        public async Task<IActionResult> PutUser(int id, UserUpdateDTO userUpdate)
         {
-            if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+           /* if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
             {
                 return Unauthorized();
-            }
+            }*/
             var userFromRepo = await _userRepository.GetUser(id);
 
-            /*_userRepository.Entry(user).State = EntityState.Modified;
+            _mapper.Map(userUpdate, userFromRepo);
 
             try
             {
-                await _userRepository.SaveChangesAsync();
+                var result = await _userRepository.SaveAll();
+                if (result)
+                    return NoContent();
+                else
+                    throw new Exception($"Canot save a user data");
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (_userRepository.GetUser(id) == null)
                 {
                     return NotFound();
                 }
@@ -84,7 +90,7 @@ namespace SubitonAPI.Controllers
                 {
                     throw;
                 }
-            }*/
+            }
 
             return NoContent();
         }

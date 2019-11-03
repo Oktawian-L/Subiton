@@ -12,7 +12,6 @@ namespace SubitonAPI.DTO
     /// </summary>
     public class UserUpdateDTO
     {
-        public int Id { get; set; }
         public AnimalType AnimalType { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
