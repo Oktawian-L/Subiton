@@ -7,9 +7,13 @@
   padding: 0 15px;
 }
 .card-footer {
-  padding: 0 15px;
+  padding:15px;
   border-top: none;
   margin-bottom: 10px;
+}
+.card-footer .btn{
+  margin-right: 5px;
+  margin-left: 5px;
 }
 .tr {
   border: black;
@@ -35,4 +39,7 @@
 }
 .textarea{
   width: 90%;
+}
+.alert-info{
+  width:100%;
 }
