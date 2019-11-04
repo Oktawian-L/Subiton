@@ -15,9 +15,6 @@ export class UserEditComponent implements OnInit {
 
   user: User;
 
-  galleryOptions: NgxGalleryOptions[];
-  galleryImages: NgxGalleryImage[];
-
   @ViewChild('editForm', { static: false }) editForm: NgForm;
 
   // random browser exit prevention, and show poup
@@ -38,7 +35,6 @@ export class UserEditComponent implements OnInit {
       this.user = data.user;
     });
 
-
     this.galleryOptions = [
       {
         width: '100%',
@@ -49,7 +45,7 @@ export class UserEditComponent implements OnInit {
         thumbnails: false,
         imageAnimation: NgxGalleryAnimation.Slide,
         previewZoomMax: 4,
-        previewZoomMin : 1,
+        previewZoomMin: 1,
         previewRotate: true,
         previewBullets: true
       },
@@ -78,7 +74,7 @@ export class UserEditComponent implements OnInit {
     const imageUrls = [];
 
     // tslint:disable-next-line:prefer-for-of
-    for (let i = 0;  i < this.user.photos.length; i++) {
+    for (let i = 0; i < this.user.photos.length; i++) {
       imageUrls.push({
         small: this.user.photos[i].url,
         medium: this.user.photos[i].url,
@@ -92,9 +88,12 @@ export class UserEditComponent implements OnInit {
   }
 
   // save chnages - edit profile
-  updateUser() {
-    this.userService.updateUser(this.user.id, this.user);
+  updateUser(formUser: User) {
+    console.log(this.editForm.updateModel);
+    console.log(this.editForm.value);
+    console.log(this.editForm.valueChanges);
+    this.userService.updateUser(this.user.id, this.editForm.value);
     this.alertify.success('Succesfully saved changes.');
-    this.editForm.reset(this.user);
+    this.editForm.reset(this.editForm.value);
   }
 }

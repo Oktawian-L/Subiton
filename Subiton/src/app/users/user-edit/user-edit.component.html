@@ -38,14 +38,15 @@
         </div>
         <div class="card-footer">
           <div class="btn-group d-flex">
-            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success w-100"><i class="fa fa-save"></i> Save</button>
+            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success w-100"><i
+                class="fa fa-save"></i> Save</button>
             <button class="btn btn-warning w-100"><i class="fa fa-warning"></i> Cancel</button>
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-8">
-      <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+      <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser(user)">
         <div class="tab-panel">
           <tabset class="user-tabset">
             <tab heading="Edit information" id="profile_tab1">
