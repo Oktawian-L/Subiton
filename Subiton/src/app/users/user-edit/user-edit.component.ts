@@ -5,6 +5,7 @@ import { NgxGalleryImage, NgxGalleryOptions, NgxGalleryAnimation } from 'ngx-gal
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/_services/user.service';
+import { AuthorizationService } from 'src/app/_services/authorization.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -29,7 +30,8 @@ export class UserEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private alertify: AlertifyService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private authServie: AuthorizationService) { }
 
   ngOnInit(): void {
 
@@ -93,9 +95,14 @@ export class UserEditComponent implements OnInit {
   updateUser(formUser: User) {
     console.log(this.editForm.updateModel);
     console.log(this.editForm.value);
-    console.log(this.editForm.valueChanges);
-    this.userService.updateUser(this.user.id, this.editForm.value);
-    this.alertify.success('Succesfully saved changes.');
-    this.editForm.reset(this.editForm.value);
+    console.log(this.authServie.decodedToken.nameid[0]);
+    this.userService.updateUser(this.authServie.decodedToken.nameid[0], this.editForm.value)
+    .subscribe(next => {
+      this.alertify.success('Succesfully saved changes.');
+      this.editForm.reset(this.editForm.value);
+    }, error => {
+      this.alertify.error(error);
+    });
+
   }
 }
