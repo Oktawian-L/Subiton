@@ -15,6 +15,8 @@ export class UserEditComponent implements OnInit {
 
   user: User;
 
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
   @ViewChild('editForm', { static: false }) editForm: NgForm;
 
   // random browser exit prevention, and show poup
