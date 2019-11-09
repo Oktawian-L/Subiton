@@ -3,12 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <style>
+        .circle:before {
+            content: ' \25CF';
+            font-size: 40px;
+            color: lawngreen;
+        }
+        body {
+            text-align:center;
+            background-color:lightyellow;
+           font-family:Calibri, Times, serif;
+        }
+    </style>
 </head>
 <body>
-    <div style="text-align:center">
-        <h4 >Welcome commander, Subiton is up and ready for duty, sir.</h4>
-        <img src="~/Content/Subiton.png" asp-append-version="true">
+    <div class="dome">
+        <h2>Welcome commander, I am up and ready for duty, sir.</h2>
+        <div style="font-size: 40px">
+            Subiton status: <span class="circle"></span><br />
+            Database status: <span class="circle"></span><br />
+            Network status: <span class="circle"></span><br />
+            Claudinary status: <span class="circle"></span><br />
+        </div>
     </div>
 </body>
 </html>
