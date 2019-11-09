@@ -70,13 +70,14 @@ namespace SubitonAPI.Controllers
         [HttpPost]
         public async Task<ActionResult> AddPhotoForUser(int userId, PhotoCreateDTO photo)
         {
-            _context.Photos.Add(photo);
+            /*_context.Photos.Add(photo);
             await _context.SaveChangesAsync().ConfigureAwait(true);
 
             if (photo == null)
                 throw new ArgumentNullException(nameof(photo));
 
-            return CreatedAtAction("GetPhoto", new { id = photo.Id }, photo);
+            return CreatedAtAction("GetPhoto", new { id = photo.Id }, photo);*/
+            return Ok();
         }
 
 

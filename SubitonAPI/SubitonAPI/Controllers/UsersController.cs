@@ -90,7 +90,6 @@ namespace SubitonAPI.Controllers
                 }
             }
 
-            return NoContent();
         }
         /*
         // POST: api/Users
