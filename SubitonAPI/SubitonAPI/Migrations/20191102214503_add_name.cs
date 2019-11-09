@@ -10,6 +10,13 @@ namespace SubitonAPI.Migrations
                 name: "Name",
                 table: "Users",
                 nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "public_id",
+                table: "Photos",
+                nullable: true);
+
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -17,6 +24,10 @@ namespace SubitonAPI.Migrations
             migrationBuilder.DropColumn(
                 name: "Name",
                 table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "public_id",
+                table: "Photos");
         }
     }
 }
