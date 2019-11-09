@@ -39,6 +39,7 @@ namespace SubitonAPI
             services.AddDbContext<DataContext>(x => x.UseSqlite("Data Source =Subiton.db"));
             services.AddControllers();
             services.AddCors();
+            services.AddMvc();
             //claudinary config
             services.Configure<ClaudinarySettings>(Configuration.GetSection("ClaudinarySettings"));
             //automapper init
