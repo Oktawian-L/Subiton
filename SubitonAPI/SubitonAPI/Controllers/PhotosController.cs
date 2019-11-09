@@ -10,20 +10,44 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using SubitonAPI.Data;
+using SubitonAPI.DTO;
 using SubitonAPI.Helpers;
 using SubitonAPI.Models;
 
 namespace SubitonAPI.Controllers
 {
+    /// <summary>
+    /// Photo uploaded to claudinary
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PhotosController : ControllerBase
     {
+        /// <summary>
+        /// Database context
+        /// </summary>
         private readonly DataContext _context;
+
+        /// <summary>
+        /// The user repository
+        /// </summary>
         private readonly IUserRepository _userRepository;
+
+        /// <summary>
+        /// The mapper
+        /// </summary>
         private readonly IMapper _mapper;
+
+        /// <summary>
+        /// The claudinary 
+        /// </summary>
         private readonly IOptions<ClaudinarySettings> _claudinarySettings;
+
+        /// <summary>
+        /// The cloudinary
+        /// </summary>
         private readonly Cloudinary _cloudinary;
 
         public PhotosController(DataContext context, IUserRepository userRepository, IMapper mapper, IOptions<ClaudinarySettings> claudinarySettings)
@@ -41,6 +65,20 @@ namespace SubitonAPI.Controllers
 
             _cloudinary = new Cloudinary(account);
         }
+
+        // POST: api/Photos
+        [HttpPost]
+        public async Task<ActionResult> AddPhotoForUser(int userId, PhotoCreateDTO photo)
+        {
+            _context.Photos.Add(photo);
+            await _context.SaveChangesAsync().ConfigureAwait(true);
+
+            if (photo == null)
+                throw new ArgumentNullException(nameof(photo));
+
+            return CreatedAtAction("GetPhoto", new { id = photo.Id }, photo);
+        }
+
 
         // GET: api/Photos
         [HttpGet]
@@ -69,6 +107,10 @@ namespace SubitonAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPhoto(int id, Photo photo)
         {
+
+            if (photo == null)
+                throw new ArgumentNullException(nameof(photo));
+
             if (id != photo.Id)
             {
                 return BadRequest();
@@ -78,7 +120,7 @@ namespace SubitonAPI.Controllers
 
             try
             {
-                await _context.SaveChangesAsync().ConfigureAwait(true);
+                await _context.SaveChangesAsync().ConfigureAwait(false);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -95,17 +137,6 @@ namespace SubitonAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Photos
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
-        public async Task<ActionResult<Photo>> PostPhoto(Photo photo)
-        {
-            _context.Photos.Add(photo);
-            await _context.SaveChangesAsync().ConfigureAwait(true);
-
-            return CreatedAtAction("GetPhoto", new { id = photo.Id }, photo);
-        }
 
         // DELETE: api/Photos/5
         [HttpDelete("{id}")]
@@ -118,7 +149,7 @@ namespace SubitonAPI.Controllers
             }
 
             _context.Photos.Remove(photo);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync().ConfigureAwait(true);
 
             return photo;
         }

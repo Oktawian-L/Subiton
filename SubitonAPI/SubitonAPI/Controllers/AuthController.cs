@@ -39,8 +39,11 @@ namespace SubitonAPI.Controllers
         public async Task<ActionResult> Register(UserRegisterDTO userRegisterDTO)
         {
 
+            if (userRegisterDTO == null)
+                throw new ArgumentNullException(nameof(userRegisterDTO));
+
             userRegisterDTO.Username = userRegisterDTO.Username.ToLower();
-            if (await _repository.UserExists(userRegisterDTO.Username))
+            if (await _repository.UserExists(userRegisterDTO.Username).ConfigureAwait(false))
             {
                 return BadRequest("User already exixts");
             }

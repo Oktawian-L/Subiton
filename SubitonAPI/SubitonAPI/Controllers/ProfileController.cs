@@ -25,7 +25,7 @@ namespace SubitonAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users.ToListAsync().ConfigureAwait(false);
         }
 
         // GET: api/Users/5
@@ -97,7 +97,7 @@ namespace SubitonAPI.Controllers
             }
 
             _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync().ConfigureAwait(false);
 
             return user;
         }

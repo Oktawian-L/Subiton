@@ -4,6 +4,7 @@ namespace SubitonAPI.Migrations
 {
     public partial class extendPhotos : Migration
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>")]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(

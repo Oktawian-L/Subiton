@@ -36,7 +36,7 @@ namespace SubitonAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            var users = await _userRepository.GetAllUsers();
+            var users = await _userRepository.GetAllUsers().ConfigureAwait(false);
             // map from user to copllection dto
             var usersToReturn = _mapper.Map<IEnumerable<UserForDetailsDTO>>(users);
 
@@ -47,7 +47,7 @@ namespace SubitonAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _userRepository.GetUser(id);
+            var user = await _userRepository.GetUser(id).ConfigureAwait(false);
 
             if (user == null)
             {
@@ -59,8 +59,6 @@ namespace SubitonAPI.Controllers
 
         
         // PUT: api/Users/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, UserUpdateDTO userUpdate)
         {
