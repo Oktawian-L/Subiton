@@ -78,7 +78,7 @@ namespace SubitonAPI.Controllers
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync().ConfigureAwait(true);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -102,7 +102,7 @@ namespace SubitonAPI.Controllers
         public async Task<ActionResult<Photo>> PostPhoto(Photo photo)
         {
             _context.Photos.Add(photo);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync().ConfigureAwait(true);
 
             return CreatedAtAction("GetPhoto", new { id = photo.Id }, photo);
         }
