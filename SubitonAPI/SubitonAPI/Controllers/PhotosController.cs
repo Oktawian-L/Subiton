@@ -31,7 +31,7 @@ namespace SubitonAPI.Controllers
             _context = context;
             _userRepository = userRepository;
             _mapper = mapper;
-            _claudinarySettings = claudinarySettings;
+            _claudinarySettings = claudinarySettings ?? throw new ArgumentNullException(nameof(claudinarySettings));
 
             Account account = new Account(
                 _claudinarySettings.Value.CloudName,
@@ -46,7 +46,7 @@ namespace SubitonAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Photo>>> GetPhotos()
         {
-            return await _context.Photos.ToListAsync();
+            return await _context.Photos.ToListAsync().ConfigureAwait(true);
         }
 
         // GET: api/Photos/5
